@@ -8,7 +8,27 @@ A split keyboard with 3x6 vertically staggered keys and 4 thumb keys.
 * Hardware Supported: Claw44 PCB, RP2040
 * Hardware Availability: https://shop.dailycraft.jp/
 
-Source code for Vial port
+## Source code for Vial port
+
+Specification:
+* **MCU**: Support for RP2024
+* **Layers**: 21 layers
+* **Rotary Encoder**: Support for 4 rotary encoders
+* **OLED**: Supported
+* **LED**: Support for RGB Matrix and 6 LEDs for each side
+* **Tap Dance**: Supported and 32 settings are available
+* **Combo**: Supported and 32 settings are available
+* **Macro**: Supported and 16 settings are available
+* **Extrakey**: Supported
+* **Mousekey**: Supported
+* **N-key Rollover**: Supported
+* **Space Cadet**: Supported
+* **Key Overrides**: Supported
+* **Magic Keycodes**: Supported
+* **Grave Escape**: Supported
+* **Auto Shift**: Supported
+* **One Shot Keys**: Supported
+* **QMK settings in Vial**:  Supported and all features in Vial QMK settings are available
 
 Make example for this keyboard (after setting up your build environment):
 
