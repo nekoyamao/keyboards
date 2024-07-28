@@ -11,7 +11,7 @@ An Alice style board with arrowkeys made by NEO Studio.
 
 Specification:
 * **Layers**: 16 layers
-* **Layers**: Support for multi-layout ex.) 2u-BS, split-BS, arrow keys and so on
+* **Layout**: Support for multi-layout ex.) 2u-BS, split-BS, arrow keys and so on
 * **LED**: Support for RGB Matrix and 16 LEDs
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
