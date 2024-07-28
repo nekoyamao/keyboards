@@ -1,6 +1,6 @@
 # Source codes for Vial port
 
-These source codes are prepared for my own use purpose.
+These source codes are prepared for my own use purpose. Free to use and update as needed.
 
 Keyboards:
 
