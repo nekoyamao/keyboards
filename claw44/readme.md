@@ -12,7 +12,7 @@ A split keyboard with 3x6 vertically staggered keys and 4 thumb keys.
 ## Source code for Vial port
 
 Specification:
-* **MCU**: Necessary to upgrade to RP2040 and please see [blog](https://note.com/nekoyamaou/n/n1f1c29d85832).
+* **MCU**: Necessary to upgrade to RP2040 and please see [blog](https://note.com/nekoyamaou/n/n1f1c29d85832)
 * **Layers**: 21 layers
 * **Rotary Encoder**: Support for 4 rotary encoders
 * **OLED**: Supported
