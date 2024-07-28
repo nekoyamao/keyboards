@@ -1,6 +1,6 @@
 # Neo Ergo Wired - PCB
 
-![neo ergo wired](https://qwertykeys.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F870c01ba-5b4e-4294-a4be-aad8d13d751f%2F0c633c31-3bf2-4567-b49d-c1c84effbb8b%2F%25E5%259C%25BA%25E6%2599%25AF%25E5%259B%25BE.png?table=block&id=2bea8246-5f27-4056-a243-4405011b3801&spaceId=870c01ba-5b4e-4294-a4be-aad8d13d751f&width=2000&userId=&cache=v2)
+![neo ergo wired](https://assets.st-note.com/production/uploads/images/148034529/rectangle_large_type_2_99daf56016a3eb9778a23512267d6527.jpeg?width=2000&height=2000&fit=bounds&quality=85)
 
 An Alice style board with arrowkeys made by NEO Studio.
 
