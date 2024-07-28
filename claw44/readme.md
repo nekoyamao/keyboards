@@ -5,13 +5,14 @@
 A split keyboard with 3x6 vertically staggered keys and 4 thumb keys.
 
 * Keyboard Maintainer: [yfuku](https://github.com/yfuku)
-* Hardware Supported: Claw44 PCB, RP2040
+* Hardware Supported: Claw44 PCB
 * Hardware Availability: https://shop.dailycraft.jp/
+* * MUC Supported: RP2040
 
 ## Source code for Vial port
 
 Specification:
-* **MCU**: Support for RP2024
+* **MCU**: Necessary to upgrade to RP2040 and please see [blog](https://note.com/nekoyamaou/n/n1f1c29d85832).
 * **Layers**: 21 layers
 * **Rotary Encoder**: Support for 4 rotary encoders
 * **OLED**: Supported
@@ -29,6 +30,8 @@ Specification:
 * **Auto Shift**: Supported
 * **One Shot Keys**: Supported
 * **QMK settings in Vial**:  Supported and all features in Vial QMK settings are available
+
+For more information, please see [blog](https://note.com/nekoyamaou/n/n671948beb4d8).
 
 Make example for this keyboard (after setting up your build environment):
 
