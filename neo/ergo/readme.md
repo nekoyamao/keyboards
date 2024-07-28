@@ -10,8 +10,9 @@ An Alice style board with arrowkeys made by NEO Studio.
 ## Source code for Vial port
 
 Specification:
-* **Layers**: 16 layers
+
 * **Layout**: Support for multi-layout ex.) 2u-BS, split-BS, arrow keys and so on
+* **Layers**: 16 layers
 * **LED**: Support for RGB Matrix and 16 LEDs
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
