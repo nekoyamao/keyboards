@@ -10,11 +10,8 @@ An Alice style board with arrowkeys made by NEO Studio.
 ## Source code for Vial port
 
 Specification:
-* **MCU**: Support for RP2024
-* **Layers**: 21 layers
-* **Rotary Encoder**: Support for 4 rotary encoders
-* **OLED**: Supported
-* **LED**: Support for RGB Matrix and 6 LEDs for each side
+* **Layers**: 16 layers
+* **LED**: Support for RGB Matrix and 16 LEDs
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
 * **Macro**: Supported and 16 settings are available
