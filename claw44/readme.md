@@ -7,7 +7,7 @@ A split keyboard with 3x6 vertically staggered keys and 4 thumb keys.
 * Keyboard Maintainer: [yfuku](https://github.com/yfuku)
 * Hardware Supported: Claw44 PCB
 * Hardware Availability: https://shop.dailycraft.jp/
-* * MUC Supported: RP2040
+* MUC Supported: RP2040
 
 ## Source code for Vial port
 
