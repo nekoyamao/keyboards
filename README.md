@@ -5,8 +5,8 @@ These source codes are prepared for my own use purpose. Free to use and update a
 Keyboards:
 
 * **Claw44**: Necessary to upgrade MCU to RP2040
-* **Neo Ergo**: Support for WIRED PCB ONLY, NOT for support wireless PCB
-* **Planck v7**: Coming soon
+* **Neo Ergo**: Support for WIRED PCB ONLY, NOT for wireless PCB
+* **Planck rev7**: Support for rev7 PCB ONLY, NOT for other PCBs
 * **Vertex Arc60**: Coming soon
 
 # Very Important
