@@ -5,7 +5,7 @@
         "midi": "advanced"
   },
   "layouts": {
-    "labels": [["Layout", "LAYOUT_ortho_4x12", "LAYOUT_planck_1x2uC", "LAYOUT_planck_1x2uL", "LAYOUT_planck_1x2uR", "LAYOUT_planck_2x2u"]],
+    "labels": [["Layout", "Ortho 48 Keys", "2u Spacebar(L&R)", "2u Spacebar(Center)", "2u Spacebar(L)", "2u Spacebar(R)"]],
     "keymap": [
   [
     {
@@ -138,47 +138,48 @@
   ],
   [
     {
-      "y": 0.25,
+      "y": 0.5,
       "x": 6.25,
-      "c": "#777777"
-    },
-    "7,4\n\n\n0,1",
-    {
       "c": "#cccccc",
       "w": 2
     },
-    "7,0\n\n\n0,1",
+    "7,5\n\n\n0,1",
     {
-      "c": "#777777"
+      "w": 2
     },
     "7,1\n\n\n0,1"
   ],
   [
     {
       "x": 6.25,
+      "c": "#777777"
+    },
+    "7,4\n\n\n0,2",
+    {
       "c": "#cccccc",
       "w": 2
     },
-    "7,5\n\n\n0,2",
     "7,0\n\n\n0,2",
+    {
+      "c": "#777777"
+    },
     "7,1\n\n\n0,2"
+  ],
+  [
+    {
+      "x": 6.25,
+      "c": "#cccccc",
+      "w": 2
+    },
+    "7,5\n\n\n0,3",
+    "7,0\n\n\n0,3",
+    "7,1\n\n\n0,3"
   ],
   [
     {
       "x": 6.25
     },
-    "7,4\n\n\n0,3",
-    "7,5\n\n\n0,3",
-    {
-      "w": 2
-    },
-    "7,1\n\n\n0,3"
-  ],
-  [
-    {
-      "x": 6.25,
-      "w": 2
-    },
+    "7,4\n\n\n0,4",
     "7,5\n\n\n0,4",
     {
       "w": 2
