@@ -2,7 +2,7 @@
 
 ![Planck](https://assets.st-note.com/production/uploads/images/138024849/rectangle_large_type_2_ae8bebd81e6a8477c89120ab45729b98.jpeg?width=2000&height=2000&fit=bounds&quality=85)
 
-A compact 40% (12x4) ortholinear keyboard kit designed by OLKB and sold by Drop. A complete hardware rework of the rev6 Planck PCB, with support for up to 8 rotary encoders. [More info on qmk.fm](http://qmk.fm/planck/)
+A compact 40% (12x4) ortholinear keyboard kit designed by OLKB and sold by Drop. A complete hardware rework of the rev7 Planck PCB, with support for up to 8 rotary encoders.
 
 * Keyboard Maintainer: [Jack Humbert](https://github.com/jackhumbert)
 * Hardware Supported: Planck PCB rev7
