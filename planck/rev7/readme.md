@@ -5,7 +5,7 @@
 A compact 40% (12x4) ortholinear keyboard kit designed by OLKB and sold by Drop. A complete hardware rework of the rev7 Planck PCB, with support for up to 8 rotary encoders.
 
 * Keyboard Maintainer: [Jack Humbert](https://github.com/jackhumbert)
-* Hardware Supported: Planck PCB rev7
+* Hardware Supported: rev7 Planck PCB
 * Hardware Availability: [Drop](https://drop.com/buy/planck-mechanical-keyboard?mode=guest_open)
 
 ## Source code for Vial port
@@ -48,3 +48,7 @@ Enter the bootloader in 2 ways:
 
 * **Physical reset button**: Briefly press the button on the PCB
 * **Keycode in layout**: Press the key mapped to `RESET` if it is available
+
+## Special Thanks
+
+[ykeisuke's achievement](https://github.com/ykeisuke/vial-qmk/tree/fix/planck-v7-wip/keyboards/planck/rev7) enables to use "ENCODER_MAP_ENABLE = yes" for Planck rev7.
