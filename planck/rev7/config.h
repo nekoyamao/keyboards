@@ -17,7 +17,7 @@
 
 #pragma once
 
-/* 8 Layer化 */
+/* define layer size */
 #define DYNAMIC_KEYMAP_LAYER_COUNT 23
 #define LAYER_STATE_24BIT
 
@@ -55,7 +55,7 @@
 /* Locking resynchronize hack */
 //#define LOCKING_RESYNC_ENABLE
 
-/* LOCKING_XXXの無効化 */
+/* disable action for LOCKING_XXX */
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
 
