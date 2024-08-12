@@ -1,5 +1,7 @@
 # arc60
 
+![Arc60](https://assets.st-note.com/production/uploads/images/150460964/rectangle_large_type_2_baeb9379c952e50905f05f8a878aedcd.jpeg?width=2000&height=2000&fit=bounds&quality=85)
+
 A customizable hotswap 60% keyboard.
 
 * Keyboard Maintainer: [EASON](https://github.com/EasonQian1)
