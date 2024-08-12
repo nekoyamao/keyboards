@@ -28,6 +28,8 @@ Specification:
 * **One Shot Keys**: Supported
 * **QMK settings in Vial**:  Supported and all features in Vial QMK settings are available
 
+For more information, please see [blog](https://note.com/nekoyamaou/n/n42a6f4ab4669).
+
 Make example for this keyboard (after setting up your build environment):
 
     make vertex/arc60s:vial
