@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-/* 8 Layer化 */
+/* define layer size */
 #define DYNAMIC_KEYMAP_LAYER_COUNT 16
 #define LAYER_STATE_16BIT
 
