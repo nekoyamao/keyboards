@@ -7,7 +7,7 @@ Keyboards:
 * **Claw44**: Necessary to upgrade MCU to RP2040
 * **Neo Ergo**: Support for WIRED PCB ONLY, NOT for wireless PCB
 * **Planck**: Support for rev7 PCB ONLY, NOT for other PCBs
-* **Vertex Arc60**: Coming soon
+* **Vertex Arc60**: Support for Tsangan, Split Spacebar(3-1-3), ANSI and ISO
 
 # Very Important
 
