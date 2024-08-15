@@ -28,6 +28,8 @@ Specification:
 * **Grave Escape**: Supported
 * **Auto Shift**: Supported
 * **One Shot Keys**: Supported
+* **Audio and Music Mode**: Supported
+* **MIDI**: Supported for advanced MIDI features
 * **QMK settings in Vial**:  Supported and all features in Vial QMK settings are available
 
 For more information, please see [blog](https://note.com/nekoyamaou/n/nef832302f7c5).
