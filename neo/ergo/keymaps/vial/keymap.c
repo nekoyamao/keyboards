@@ -375,3 +375,72 @@ layer_state_t layer_state_set_user(layer_state_t state){
   return state;
 }
 #endif 
+
+
+#ifdef RGB_MATRIX_ENABLE
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case _01:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                break;
+            case _02:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                break;
+            case _03:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                break;
+            case _04:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                break;
+            case _05:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                break;
+            case _06:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_BLUE);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                break;
+            case _07:
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);}
+                break;
+            default:
+                break;
+        }
+    }
+    return false;
+}
+#endif 
