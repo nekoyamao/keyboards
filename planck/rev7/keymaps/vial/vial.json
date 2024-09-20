@@ -5,14 +5,28 @@
         "midi": "advanced"
   },
   "layouts": {
-    "labels": [["Layout", "Ortho 48 Keys", "2u Spacebar(Center)", "2u Spacebar(L&R)", "2u Spacebar(L)", "2u Spacebar(R)"]],
+    "labels": [
+               ["Layout", "Ortho 48 Keys", "2u Spacebar(Center)", "2u Spacebar(L&R)", "2u Spacebar(L)", "2u Spacebar(R)"],
+               "Rotary Encoder Index 0",
+               "Rotary Encoder Index 1",
+               "Rotary Encoder Index 2",
+               "Rotary Encoder Index 3",
+               "Rotary Encoder Index 4",
+               "Rotary Encoder Index 5",
+               "Rotary Encoder Index 6",
+               "Rotary Encoder Index 7"
+              ],
     "keymap": [
   [
     {
-      "c": "#b4cfdb"
+      "c": "#b4cfdb",
+      "d": true
     },
-    "0,0\n\n\n\n\n\n\n\n\ne",
-    "0,1\n\n\n\n\n\n\n\n\ne",
+    "0,0\n\n\n1,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "0,1\n\n\n1,0\n\n\n\n\n\ne",
     {
       "x": 0.25,
       "c": "#aaaaaa"
@@ -37,14 +51,24 @@
     "4,5",
     {
       "x": 0.25,
-      "c": "#b4cfdb"
+      "c": "#b4cfdb",
+      "d": true
     },
-    "4,0\n\n\n\n\n\n\n\n\ne",
-    "4,1\n\n\n\n\n\n\n\n\ne"
+    "4,0\n\n\n5,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "4,1\n\n\n5,0\n\n\n\n\n\ne"
   ],
   [
-    "1,0\n\n\n\n\n\n\n\n\ne",
-    "1,1\n\n\n\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "1,0\n\n\n2,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "1,1\n\n\n2,0\n\n\n\n\n\ne",
     {
       "x": 0.25,
       "c": "#aaaaaa"
@@ -69,14 +93,24 @@
     "5,5",
     {
       "x": 0.25,
-      "c": "#b4cfdb"
+      "c": "#b4cfdb",
+      "d": true
     },
-    "5,0\n\n\n\n\n\n\n\n\ne",
-    "5,1\n\n\n\n\n\n\n\n\ne"
+    "5,0\n\n\n6,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "5,1\n\n\n6,0\n\n\n\n\n\ne"
   ],
   [
-    "2,0\n\n\n\n\n\n\n\n\ne",
-    "2,1\n\n\n\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "2,0\n\n\n3,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "2,1\n\n\n3,0\n\n\n\n\n\ne",
     {
       "x": 0.25,
       "c": "#aaaaaa"
@@ -101,14 +135,24 @@
     "6,5",
     {
       "x": 0.25,
-      "c": "#b4cfdb"
+      "c": "#b4cfdb",
+      "d": true
     },
-    "6,0\n\n\n\n\n\n\n\n\ne",
-    "6,1\n\n\n\n\n\n\n\n\ne"
+    "6,0\n\n\n7,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "6,1\n\n\n7,0\n\n\n\n\n\ne"
   ],
   [
-    "3,0\n\n\n\n\n\n\n\n\ne",
-    "3,1\n\n\n\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "3,0\n\n\n4,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "3,1\n\n\n4,0\n\n\n\n\n\ne",
     {
       "x": 0.25,
       "c": "#aaaaaa"
@@ -139,15 +183,23 @@
     "3,5",
     {
       "x": 0.25,
-      "c": "#b4cfdb"
+      "c": "#b4cfdb",
+      "d": true
     },
-    "7,0\n\n\n\n\n\n\n\n\ne",
-    "7,1\n\n\n\n\n\n\n\n\ne"
+    "7,0\n\n\n8,0\n\n\n\n\n\ne",
+    {
+      "d": true
+    },
+    "7,1\n\n\n8,0\n\n\n\n\n\ne"
   ],
   [
     {
-      "y": 0.5,
-      "x": 6.25,
+      "y": 0.5
+    },
+    "0,0\n\n\n1,1\n\n\n\n\n\ne",
+    "0,1\n\n\n1,1\n\n\n\n\n\ne",
+    {
+      "x": 4.25,
       "c": "#d3dbb4"
     },
     "7,4\n\n\n0,1",
@@ -155,38 +207,71 @@
       "w": 2
     },
     "7,0\n\n\n0,1",
-    "7,1\n\n\n0,1"
+    "7,1\n\n\n0,1",
+    {
+      "x": 4.25,
+      "c": "#b4cfdb"
+    },
+    "4,0\n\n\n5,1\n\n\n\n\n\ne",
+    "4,1\n\n\n5,1\n\n\n\n\n\ne"
   ],
   [
+    "1,0\n\n\n2,1\n\n\n\n\n\ne",
+    "1,1\n\n\n2,1\n\n\n\n\n\ne",
     {
-      "x": 6.25,
+      "x": 4.25,
+      "c": "#d3dbb4",
       "w": 2
     },
     "7,5\n\n\n0,2",
     {
       "w": 2
     },
-    "7,1\n\n\n0,2"
+    "7,1\n\n\n0,2",
+    {
+      "x": 4.25,
+      "c": "#b4cfdb"
+    },
+    "5,0\n\n\n6,1\n\n\n\n\n\ne",
+    "5,1\n\n\n6,1\n\n\n\n\n\ne"
   ],
   [
+    "2,0\n\n\n3,1\n\n\n\n\n\ne",
+    "2,1\n\n\n3,1\n\n\n\n\n\ne",
     {
-      "x": 6.25,
+      "x": 4.25,
+      "c": "#d3dbb4",
       "w": 2
     },
     "7,5\n\n\n0,3",
     "7,0\n\n\n0,3",
-    "7,1\n\n\n0,3"
+    "7,1\n\n\n0,3",
+    {
+      "x": 4.25,
+      "c": "#b4cfdb"
+    },
+    "6,0\n\n\n7,1\n\n\n\n\n\ne",
+    "6,1\n\n\n7,1\n\n\n\n\n\ne"
   ],
   [
+    "3,0\n\n\n4,1\n\n\n\n\n\ne",
+    "3,1\n\n\n4,1\n\n\n\n\n\ne",
     {
-      "x": 6.25
+      "x": 4.25,
+      "c": "#d3dbb4"
     },
     "7,4\n\n\n0,4",
     "7,5\n\n\n0,4",
     {
       "w": 2
     },
-    "7,1\n\n\n0,4"
+    "7,1\n\n\n0,4",
+    {
+      "x": 4.25,
+      "c": "#b4cfdb"
+    },
+    "7,0\n\n\n8,1\n\n\n\n\n\ne",
+    "7,1\n\n\n8,1\n\n\n\n\n\ne"
   ]
 ]
 }
