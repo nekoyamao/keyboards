@@ -3,8 +3,8 @@
   "matrix": {"rows": 10, "cols": 6},
   "layouts": {
     "labels": [
-               ["Left Expansion Plate", "N/A", "Dual Encoders", "Single Encoder", "Key Switches - 2x1u"],
-               ["Right Expansion Plate", "N/A", "Dual Encoders", "Single Encoder", "Key Switches - 2x1u"]
+               ["Left Expansion Plate", "N/A", "Rotary Encoder - Dual", "Rotary Encoder - Single", "Switches - 2x1u"],
+               ["Right Expansion Plate", "N/A", "Rotary Encoder - Dual", "Rotary Encoder - Single", "Switches - 2x1u"]
               ],
     "keymap": [
   [
