@@ -15,7 +15,7 @@ Specification:
 * **PCB**: Support for 60% layout, NOT for 64-key PCB
 * **Layout**: Support for multi-layout ex.) split-BS, split left shift, split right shift, tsangan, split spacebar, ANSI and ISO and so on
 * **Layers**: 16 layers
-* **LED**: Support for RGB Light
+* **LED**: Support for RGB Matrix
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
 * **Macro**: Supported and 16 settings are available
