@@ -16,8 +16,8 @@
       "extrakey": true,
       "mousekey": true,
       "nkro": true,
-      "rgblight": true,
-      "rgb_matrix": false,
+      "rgblight": false,
+      "rgb_matrix": true,
       "space_cadet": true
     },
     "matrix_pins": {
