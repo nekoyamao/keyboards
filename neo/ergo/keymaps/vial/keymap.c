@@ -58,9 +58,9 @@ void keyboard_post_init_user_td2(void) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_00] = LAYOUT(
-        KC_NO    , TD(0)   , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , KC_MINS , KC_EQL  , KC_GRV  , KC_DEL  ,
+        KC_NO    , TD(0)   , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , KC_SCLN , KC_EQL  , KC_GRV  , KC_DEL  ,
         QK_BOOT  , KC_TAB  , KC_Q    , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , KC_LBRC , KC_RBRC , KC_BSPC ,
-        KC_NO    ,LGUI_T(KC_TAB),KC_A, KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , KC_SCLN , KC_QUOT ,           RGUI_T(KC_ENT),
+        KC_NO    ,LGUI_T(KC_TAB),KC_A, KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K    , KC_L    , KC_MINS , KC_QUOT ,           RGUI_T(KC_ENT),
         KC_NO ,KC_LSFT,XXXXXXX, KC_Z , KC_X    , KC_C    , KC_V    , KC_B    , KC_NO   , KC_N    , KC_M    , KC_COMM , KC_DOT  , KC_SLSH ,           KC_RSFT , MO(_04) ,
                    TD(1)   , KC_LCTL ,               LALT_T(KC_ENT),LSFT_T(KC_SPC),KC_01_ENT,KC_02_BSP,                                    KC_RALT , KC_NO   , TD(2)
     ),
@@ -74,8 +74,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_02] = LAYOUT(
-        KC_NO    , TD(0)   , KC_EXLM , KC_AT   , KC_HASH , KC_DLR  , KC_PERC , KC_CIRC , KC_AMPR , KC_ASTR , KC_LPRN , KC_RPRN , KC_MINS , KC_EQL  , KC_GRV  , KC_DEL  ,
-        KC_NO    , KC_TAB  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , KC_LBRC , KC_RBRC , KC_BSPC ,
+        KC_NO    , TD(0)   , KC_EXLM , KC_AT   , KC_HASH , KC_DLR  , KC_PERC , KC_CIRC , KC_AMPR , KC_ASTR , KC_LPRN , KC_RPRN , KC_SCLN , KC_EQL  , KC_GRV  , KC_DEL  ,
+        KC_NO    , KC_TAB  , KC_1    , KC_2    , KC_3    , KC_4    , KC_5    , KC_6    , KC_7    , KC_8    , KC_9    , KC_0    , KC_LBRC , KC_RBRC , KC_BSLS ,
         KC_NO    , KC_LGUI , KC_NO   ,LSFT(KC_EQL),KC_MINS,KC_EQL  , KC_LPRN , KC_RPRN , KC_LEFT , KC_UP   , KC_DOWN , KC_RGHT , KC_NO   ,           KC_ENT  ,
         KC_NO ,KC_LSFT,XXXXXXX, KC_NO,LSFT(KC_8), KC_SLSH, KC_NO   , KC_LBRC , KC_NO   , KC_RBRC , KC_HOME , KC_PGUP , KC_PGDN , KC_END  ,           KC_RSFT , KC_NO   ,
                    KC_LCTL , KC_LCTL ,                KC_LALT ,LSFT_T(KC_SPC), KC_ENT  , KC_BSPC ,                                         KC_RALT , KC_NO   , KC_RCTL
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_04] = LAYOUT(
         KC_NO    , KC_NO   , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , KC_F7   , KC_F8   , KC_F9   , KC_F10  , KC_F11  , KC_F12  , KC_NO   , KC_NO   ,
-        KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , RGB_VAI , RGB_M_X , RGB_M_G , RGB_M_T , RGB_HUI , RGB_MOD , RGB_TOG , KC_NO   ,
+        KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , RGB_VAI , RGB_M_X , RGB_M_G , RGB_M_T , RGB_HUI , RGB_MOD , RGB_TOG , KC_BSLS ,
         KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , RGB_VAD , RGB_M_SW, RGB_M_SN, RGB_M_K , RGB_HUD , RGB_RMOD,           KC_NO   ,
         KC_NO , KC_NO ,XXXXXXX, KC_NO, KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , RGB_M_P , RGB_M_B , RGB_M_R , KC_NO   ,           KC_NO   , KC_NO   ,
                    KC_NO   , KC_NO   ,                     KC_NO   , KC_NO   , KC_NO   , KC_NO   ,                                         KC_NO   , KC_NO   , KC_NO
@@ -211,7 +211,7 @@ const rgblight_segment_t PROGMEM rgb_layer_03[] = RGBLIGHT_LAYER_SEGMENTS(
 //);
 
 const rgblight_segment_t PROGMEM rgb_layer_05[] = RGBLIGHT_LAYER_SEGMENTS(
-    {5, 11, HSV_AZURE}
+    {5, 11, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_06[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -247,7 +247,7 @@ const rgblight_segment_t PROGMEM rgb_layer_13[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_14[] = RGBLIGHT_LAYER_SEGMENTS(
-    {5, 11, HSV_SPRINGGREEN}
+    {5, 11, HSV_AZURE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_15[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -327,7 +327,7 @@ layer_state_t layer_state_set_user(layer_state_t state){
 //            break;
         case _05:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
-            rgb_matrix_sethsv_noeeprom(HSV_AZURE);
+            rgb_matrix_sethsv_noeeprom(HSV_RED);
             break;
         case _06:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
@@ -363,7 +363,7 @@ layer_state_t layer_state_set_user(layer_state_t state){
             break;
         case _14:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
-            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
+            rgb_matrix_sethsv_noeeprom(HSV_AZURE);
             break;
         case _15:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
@@ -374,7 +374,7 @@ layer_state_t layer_state_set_user(layer_state_t state){
     }
   return state;
 }
-#endif 
+#endif
 
 
 #ifdef RGB_MATRIX_ENABLE
