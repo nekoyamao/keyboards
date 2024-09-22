@@ -8,8 +8,8 @@
         "pid": "0x4552",
         "device_version": "0.0.1"
     },
-    "bootloader": "stm32-dfu",
     "processor": "STM32F072",
+    "bootloader": "stm32-dfu",
     "features": {
       "bootmagic": true,
       "extrakey": true,
@@ -23,6 +23,10 @@
     "matrix_pins": {
         "rows": ["A7", "B0", "B1", "B2", "B10"],
         "cols": ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "B11", "B12", "B13", "B14", "B15", "A8", "A9", "A10"]
+    },
+    "ws2812": {
+        "driver": "bitbang",
+        "pin": "B3"
     },
     "rgblight": {
         "led_count": 16,
@@ -112,10 +116,6 @@
             {"matrix": [3, 11], "x": 164, "y": 48, "flags": 4}
         ],
         "timeout": 180000
-    },
-    "ws2812": {
-        "driver": "bitbang",
-        "pin": "B3"
     },
     "layouts": {
         "LAYOUT": {
