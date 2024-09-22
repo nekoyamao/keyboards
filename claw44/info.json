@@ -136,7 +136,8 @@
             {"matrix": [5, 0], "x": 224, "y": 14, "flags": 4}
         ],
         "max_brightness": 160,
-        "split_count": [6, 6]
+        "split_count": [6, 6],
+        "timeout": 180000
     },
     "layouts": {
         "LAYOUT": {
