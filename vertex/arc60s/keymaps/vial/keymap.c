@@ -86,10 +86,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_04] = LAYOUT_all(
         KC_NO  , KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  , KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 , KC_F12 , KC_NO  , KC_NO  ,
-        KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RGB_VAI, RGB_M_X, RGB_M_G, RGB_M_T, RGB_HUI, RGB_MOD, RGB_TOG,          KC_BSLS,
-        KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RGB_VAD,RGB_M_SW,RGB_M_SN, RGB_M_K, RGB_HUD,RGB_RMOD, XXXXXXX, KC_NO  ,
-        KC_NO  , XXXXXXX, KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RGB_M_P, RGB_M_B, RGB_M_R, KC_NO  ,          KC_NO  , KC_NO  ,
-        KC_NO  , KC_NO  , KC_NO  ,          KC_NO  ,          KC_NO  ,                   KC_NO  ,          XXXXXXX, KC_NO  , KC_NO  , KC_NO
+        KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  ,RGB_RMOD, RGB_MOD,          RGB_TOG,
+        KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RGB_HUD, RGB_HUI, XXXXXXX, RGB_VAI,
+        KC_NO  , XXXXXXX, KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , KC_NO  , RGB_SAD, RGB_SAI,          RGB_VAD, KC_NO  ,
+        KC_NO  , KC_NO  , KC_NO  ,          KC_NO  ,          KC_NO  ,                   KC_NO  ,          XXXXXXX, RGB_SPD, RGB_SPI, KC_NO
     ),
 
     [_05] = LAYOUT_all(
