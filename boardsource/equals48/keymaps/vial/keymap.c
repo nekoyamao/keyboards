@@ -1,4 +1,4 @@
-// Copyright 2023 Cole Smith (@boardsource)
+f// Copyright 2023 Cole Smith (@boardsource)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_NO     ,      KC_P0     , KC_P1     , KC_P2     , KC_P3     , KC_EQL    , KC_RSFT   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TO(_00)   , MO(_04)   , KC_NO     ,LALT_T(KC_DEL),KC_03_BSP, _______  ,      _______   , KC_05_BSP , KC_DEL    , KC_NO     , KC_NO     , KC_NO 
+        TO(_00)   , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_03_BSP, _______  ,      _______   , KC_05_BSP , KC_DEL    , KC_NO     , KC_NO     , KC_NO 
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
