@@ -173,11 +173,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_07] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , RGB_M_X   , RGB_M_G   , RGB_M_T   , RGB_MOD   , RGB_TOG   ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , RGB_RMOD  , RGB_MOD   , RGB_TOG   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , RGB_TOG, KC_NO  , RGB_SPI   , RGB_M_SW  , RGB_M_SN  , RGB_M_K   , RGB_HUI   , RGB_MOD   ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , RGB_TOG, KC_NO  , RGB_SPI   , KC_NO     , KC_NO     , RGB_HUD   , RGB_HUI   , RGB_VAI   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , RGB_SPD   , RGB_M_P   , RGB_M_B   , RGB_M_R   , RGB_HUD   , RGB_RMOD  ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , RGB_SPD   , KC_NO     , KC_NO     , RGB_SAD   , RGB_SAI   , RGB_VAD   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                                 KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -599,7 +599,7 @@ layer_state_t layer_state_set_user(layer_state_t state){
     }
   return state;
 }
-#endif
+#endif 
 
 
 /* OLEDの設定 */
@@ -1164,16 +1164,16 @@ void render_layer_state_1(void) {
             oled_write_ln_P(PSTR("-Npad"), false);
             break;
         case _03:
-            oled_write_ln_P(PSTR("-Nrow"), false);
+            oled_write_ln_P(PSTR("-Alph"), false);
             break;
         case _04:
-            oled_write_ln_P(PSTR("-Funk"), false);
+            oled_write_ln_P(PSTR("-Nrow"), false);
             break;
         case _05:
-            oled_write_ln_P(PSTR("-Symb"), false);
+            oled_write_ln_P(PSTR("-Funk"), false);
             break;
         case _06:
-            oled_write_ln_P(PSTR("-Mous"), false);
+            oled_write_ln_P(PSTR("-Symb"), false);
             break;
         case _07:
             oled_write_ln_P(PSTR("-RGB "), false);
