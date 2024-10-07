@@ -1,4 +1,4 @@
-f// Copyright 2023 Cole Smith (@boardsource)
+// Copyright 2023 Cole Smith (@boardsource)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
