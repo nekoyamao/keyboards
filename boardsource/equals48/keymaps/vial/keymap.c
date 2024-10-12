@@ -17,7 +17,7 @@ enum planck_layers {
 #define KC_06_DEL LT(_06,KC_DEL)
 #define KC_08_TAB LT(_08,KC_TAB)
 //#define KC_09_MUT LT(_04,KC_MUTE)
-// #define KC_04_DEL LT(_04,KC_DEL
+//#define KC_04_DEL LT(_04,KC_DEL
 
 
 void keyboard_post_init_user_td0(void) {
