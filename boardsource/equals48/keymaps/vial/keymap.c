@@ -433,6 +433,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 #ifdef RGB_MATRIX_ENABLE
+layer_state_t layer_state_set_user(layer_state_t state){
+  uint8_t layer = biton32(state);
+  switch (layer){
+        case _02:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_numpad);
+            break;
+        case _03:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_numrow);
+            break;
+        case _04:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_function);
+            break;
+        case _05:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_symbol);
+            break;
+        case _09:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_audio);
+            break;
+       default:
+            rgb_matrix_reload_from_eeprom();
+    }
+  return state;
+}
+#endif
+
+
+#ifdef RGB_MATRIX_ENABLE
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i < led_max; i++) {
         switch(get_highest_layer(layer_state|default_layer_state)) {
