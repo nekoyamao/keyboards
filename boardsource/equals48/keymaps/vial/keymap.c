@@ -89,19 +89,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_BSPC ,LSFT_T(KC_SPC),   KC_ENT    , KC_BSPC   , KC_DEL    , KC_NO     , KC_NO     , KC_MUTE
+        KC_NO     , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_BSPC ,LSFT_T(KC_SPC),   KC_ENT    , KC_BSPC   , KC_DEL    , KC_NO     , KC_NO     , KC_NO
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
     [_02] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(0)     , KC_NO     , KC_W      , KC_E      , KC_NO     , KC_NO     ,      KC_NO     , KC_P7     , KC_P8     , KC_P9     ,LSFT(KC_EQL),LSFT(KC_8),
+        TD(0)     , KC_P7     , KC_P8     , KC_P9     , KC_DLR    , KC_PERC   ,      KC_CIRC   , KC_AMPR   , KC_ASTR   , KC_LPRN   , KC_RPRN   ,LSFT(KC_SCLN),
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-       LGUI_T(KC_TAB), KC_A   , KC_S      , KC_D      , KC_NO     , KC_NO     ,      KC_PERC   , KC_P4     , KC_P5     , KC_P6     , KC_MINS   , KC_SLSH   ,
+        KC_08_TAB , KC_P4     , KC_P5     , KC_P6     ,LSFT(KC_8) , KC_SLSH   ,      KC_NO     , KC_LEFT   , KC_UP     , KC_DOWN   , KC_RGHT   , MO(_08)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_NO     ,      KC_P0     , KC_P1     , KC_P2     , KC_P3     , KC_EQL    , KC_RSFT   ,
+        MO(_07)   , KC_P1     , KC_P2     , KC_P3     ,LSFT(KC_EQL),KC_MINS   ,      KC_NO     , KC_NO     , KC_COMM   , KC_DOT    , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TO(_00)   , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_03_BSP, _______  ,      _______   , KC_05_BSP , KC_DEL    , KC_NO     , KC_NO     , KC_NO 
+        TO(_00)   , KC_P0     , KC_PDOT   , KC_EQL    , KC_03_BSP , _______   ,      _______   , KC_05_BSP , KC_DEL    , KC_NO     , KC_NO     , KC_NO 
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
@@ -169,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , LGUI(KC_E), KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , LGUI(KC_P), KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , LGUI(KC_D), KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , LGUI(KC_D), KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , LGUI(KC_L), KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -448,6 +448,12 @@ layer_state_t layer_state_set_user(layer_state_t state){
         case _05:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_symbol);
             break;
+        case _07:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_ctrl);
+            break;
+        case _08:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_win);
+            break;
         case _09:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_audio);
             break;
@@ -589,4 +595,4 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     }
     return false;
 }
-#endif 
+#endif
