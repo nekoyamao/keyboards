@@ -5,6 +5,7 @@ RGB_MATRIX_EFFECT(my_effect_symbol)
 RGB_MATRIX_EFFECT(my_effect_ctrl)
 RGB_MATRIX_EFFECT(my_effect_win)
 RGB_MATRIX_EFFECT(my_effect_audio)
+RGB_MATRIX_EFFECT(my_effect_mouse)
 
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 static bool my_effect_numpad(effect_params_t* params) {
@@ -171,6 +172,28 @@ static bool my_effect_audio(effect_params_t* params) {
             rgb_matrix_set_color(i, RGB_GOLDENROD);
         } else if (i==21 || i==41) {
             rgb_matrix_set_color(i, RGB_RED);
+        } else {
+            rgb_matrix_set_color(i, RGB_OFF);
+        }
+    }
+    return rgb_matrix_check_finished_leds(led_max);
+
+}
+
+
+static bool my_effect_mouse(effect_params_t* params) {
+
+    RGB_MATRIX_USE_LIMITS(led_min, led_max);
+
+    for (uint8_t i = led_min; i < led_max; i++) {
+        if  (i==28 || i==40) {
+            rgb_matrix_set_color(i, RGB_MAGENTA);
+        } else if (i>=29 && i<=32){
+            rgb_matrix_set_color(i, RGB_YELLOW);
+        } else if (i>=41 && i<=44){
+            rgb_matrix_set_color(i, RGB_GREEN);
+        } else if (i>=52 && i<=53){
+            rgb_matrix_set_color(i, RGB_BLUE);
         } else {
             rgb_matrix_set_color(i, RGB_OFF);
         }
