@@ -193,11 +193,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,     LALT(KC_RGHT), KC_MS_L , KC_MS_U   , KC_MS_D   , KC_MS_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,     LALT(KC_LEFT), KC_WH_L , KC_WH_U   , KC_WH_D   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_BTN1   , KC_BTN2   , KC_NO     , KC_NO     , KC_NO     , KC_NO
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
@@ -456,6 +456,9 @@ layer_state_t layer_state_set_user(layer_state_t state){
             break;
         case _09:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_audio);
+            break;
+        case _10:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_mouse);
             break;
        default:
             rgb_matrix_reload_from_eeprom();
