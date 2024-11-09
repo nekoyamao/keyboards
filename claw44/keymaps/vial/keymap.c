@@ -30,7 +30,9 @@ enum layer_number {
 #define KC_03_ENT LT(_03,KC_ENT)
 #define KC_04_BSP LT(_04,KC_BSPC)
 #define KC_05_ENT LT(_05,KC_ENT)
+#define KC_05_BN1 LT(_05,KC_BTN1)
 #define KC_06_BSP LT(_06,KC_BSPC)
+#define KC_06_BN2 LT(_06,KC_BTN2)
 #define KC_07_DEL LT(_07,KC_DEL)
 #define KC_09_TAB LT(_09,KC_TAB)
 // #define KC_14_EQL LT(_14,KC_EQL)
@@ -101,11 +103,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_09_TAB , KC_NO     , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , MO(_09)   ,
+        KC_09_TAB , KC_NO     , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  ,LALT(KC_RGHT), KC_MS_L , KC_MS_U   , KC_MS_D   , KC_MS_R   , MO(_09)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  , KC_NO     , KC_SPC    , KC_LEFT   , KC_RGHT   , KC_NO     , KC_NO     ,
+        TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  ,LALT(KC_LEFT), KC_WH_L , KC_WH_U   , KC_WH_D   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-                             LALT_T(KC_DEL),KC_04_BSP , _______   , KC_03_ENT ,                   TO(_00)   , _______   , KC_06_BSP , KC_07_DEL
+                             LALT_T(KC_DEL),KC_04_BSP , _______   , KC_03_ENT ,                   TO(_00)   , KC_05_BN1 , KC_06_BN2 , KC_07_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
     ),
 
@@ -214,11 +216,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  ,LALT(KC_RGHT), KC_MS_L , KC_MS_U   , KC_MS_D   , KC_MS_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  ,LALT(KC_LEFT), KC_WH_L , KC_WH_U   , KC_WH_D   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , KC_BTN1   , KC_BTN2   , KC_NO
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
     ),
 
@@ -1185,7 +1187,7 @@ void render_layer_state_1(void) {
             oled_write_ln_P(PSTR("-Win "), false);
             break;
         case _10:
-            oled_write_ln_P(PSTR("-    "), false);
+            oled_write_ln_P(PSTR("-Mous"), false);
             break;
         case _11:
             oled_write_ln_P(PSTR("-    "), false);
