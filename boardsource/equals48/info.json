@@ -1,6 +1,6 @@
 {
-    "keyboard_name": "Equals kit",
-    "manufacturer": "Boardsource",
+    "keyboard_name": "Equals48 改",
+    "manufacturer": "猫山王",
     "url": "",
     "maintainer": "Boardsource",
     "usb": {
@@ -109,14 +109,14 @@
 
             { "flags": 1, "matrix": [1, 0], "x": 0, "y": 21 },
             { "flags": 4, "matrix": [1, 1], "x": 20, "y": 21 },
-            { "flags": 4, "matrix": [1, 2], "x": 40, "y": 21 },
-            { "flags": 4, "matrix": [1, 3], "x": 61, "y": 21 },
+            { "flags": 1, "matrix": [1, 2], "x": 40, "y": 21 },
+            { "flags": 1, "matrix": [1, 3], "x": 61, "y": 21 },
             { "flags": 1, "matrix": [1, 4], "x": 81, "y": 21 },
             { "flags": 4, "matrix": [1, 5], "x": 101, "y": 21 },
             { "flags": 4, "matrix": [1, 6], "x": 122, "y": 21 },
             { "flags": 1, "matrix": [1, 7], "x": 142, "y": 21 },
-            { "flags": 4, "matrix": [1, 8], "x": 162, "y": 21 },
-            { "flags": 4, "matrix": [1, 9], "x": 183, "y": 21 },
+            { "flags": 1, "matrix": [1, 8], "x": 162, "y": 21 },
+            { "flags": 1, "matrix": [1, 9], "x": 183, "y": 21 },
             { "flags": 4, "matrix": [1, 10], "x": 203, "y": 21 },
             { "flags": 1, "matrix": [1, 11], "x": 224, "y": 21 },
 
