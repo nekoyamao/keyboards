@@ -6,6 +6,7 @@ RGB_MATRIX_EFFECT(my_effect_ctrl)
 RGB_MATRIX_EFFECT(my_effect_win)
 RGB_MATRIX_EFFECT(my_effect_audio)
 RGB_MATRIX_EFFECT(my_effect_mouse)
+RGB_MATRIX_EFFECT(my_effect_arrow)
 
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 static bool my_effect_numpad(effect_params_t* params) {
@@ -186,13 +187,13 @@ static bool my_effect_mouse(effect_params_t* params) {
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
 
     for (uint8_t i = led_min; i < led_max; i++) {
-        if  (i==28 || i==40) {
+        if ((i>=27 && i<=28) || (i>=39 && i<=40)) {
             rgb_matrix_set_color(i, RGB_MAGENTA);
-        } else if (i>=29 && i<=32){
+        } else if (i==18 || (i>=29 && i<=31)){
             rgb_matrix_set_color(i, RGB_YELLOW);
-        } else if (i>=41 && i<=44){
+        } else if (i==13 || (i>=24 && i<=26) || (i>=41 && i<=44)){
             rgb_matrix_set_color(i, RGB_GREEN);
-        } else if (i>=52 && i<=53){
+        } else if (i>=50 && i<=53){
             rgb_matrix_set_color(i, RGB_BLUE);
         } else {
             rgb_matrix_set_color(i, RGB_OFF);
@@ -201,4 +202,21 @@ static bool my_effect_mouse(effect_params_t* params) {
     return rgb_matrix_check_finished_leds(led_max);
 
 }
+
+
+static bool my_effect_arrow(effect_params_t* params) {
+
+    RGB_MATRIX_USE_LIMITS(led_min, led_max);
+
+    for (uint8_t i = led_min; i < led_max; i++) {
+        if (i==25 || (i>=36 && i<=38) || i==30 || (i>=41 && i<=43)) {
+            rgb_matrix_set_color(i, RGB_PURPLE);
+        } else {
+            rgb_matrix_set_color(i, RGB_OFF);
+        }
+    }
+    return rgb_matrix_check_finished_leds(led_max);
+
+}
+
 #endif
