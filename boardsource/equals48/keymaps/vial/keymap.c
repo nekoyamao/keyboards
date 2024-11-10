@@ -21,7 +21,6 @@ enum planck_layers {
 #define KC_11_SLH LT(_11,KC_SLSH)
 
 
-
 void keyboard_post_init_user_td0(void) {
     vial_tap_dance_entry_t td = { LCTL(KC_SPC),
                                   KC_ESC,
