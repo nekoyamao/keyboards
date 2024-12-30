@@ -85,7 +85,7 @@ void keyboard_post_init_user_td4(void) {
     dynamic_keymap_set_tap_dance(3, &td); // the first value corresponds to the TD(i) slot
 }
 
-void keyboard_post_init_user_td4(void) {
+void keyboard_post_init_user_td5(void) {
     vial_tap_dance_entry_t td = { LCTL(KC_SPC),
                                   MO(_09),
                                   KC_NO,
@@ -405,10 +405,10 @@ const rgblight_segment_t PROGMEM rgb_layer_01[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_MAGENTA}
 );
 const rgblight_segment_t PROGMEM rgb_layer_02[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_ORANGE}
+    {0, 12, HSV_GOLD}
 );
 const rgblight_segment_t PROGMEM rgb_layer_03[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_GOLD}
+    {0, 12, HSV_WHITE}
 );
 const rgblight_segment_t PROGMEM rgb_layer_04[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_CYAN}
@@ -429,37 +429,37 @@ const rgblight_segment_t PROGMEM rgb_layer_09[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_CHARTREUSE}
 );
 const rgblight_segment_t PROGMEM rgb_layer_10[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_CORAL}
-);
-const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_GOLDENROD}
-);
-const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_PINK}
-);
-const rgblight_segment_t PROGMEM rgb_layer_13[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_PURPLE}
 );
-const rgblight_segment_t PROGMEM rgb_layer_14[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_SPRINGGREEN}
+const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_PINK}
 );
-const rgblight_segment_t PROGMEM rgb_layer_15[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_TEAL}
+const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_CORAL}
 );
-const rgblight_segment_t PROGMEM rgb_layer_16[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_TURQUOISE}
-);
-const rgblight_segment_t PROGMEM rgb_layer_17[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_WHITE}
-);
-const rgblight_segment_t PROGMEM rgb_layer_18[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_YELLOW}
-);
-const rgblight_segment_t PROGMEM rgb_layer_19[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM rgb_layer_13[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_ORANGE}
 );
+const rgblight_segment_t PROGMEM rgb_layer_14[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_GOLDENROD}
+);
+const rgblight_segment_t PROGMEM rgb_layer_15[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_GOLD}
+);
+const rgblight_segment_t PROGMEM rgb_layer_16[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_YELLOW}
+);
+const rgblight_segment_t PROGMEM rgb_layer_17[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_CHARTREUSE}
+);
+const rgblight_segment_t PROGMEM rgb_layer_18[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_GREEN}
+);
+const rgblight_segment_t PROGMEM rgb_layer_19[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_SPRINGGREEN}
+);
 const rgblight_segment_t PROGMEM rgb_layer_20[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_AZURE}
+    {0, 12, HSV_TURQUOISE}
 );
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -470,7 +470,7 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     rgb_layer_04,
     rgb_layer_05,
     rgb_layer_06,
-//    rgb_layer_07     // ,不要 
+//    rgb_layer_07,
     rgb_layer_08,
     rgb_layer_09,
     rgb_layer_10,
