@@ -43,19 +43,19 @@ void keyboard_post_init_user_td0(void) {
 }
 
 void keyboard_post_init_user_td1(void) {
-    vial_tap_dance_entry_t td = { KC_NO,
-                                  MO(_02),
-                                  TO(_02),
+    vial_tap_dance_entry_t td = { KC_WH_R,
+                                  MO(_09),
+                                  KC_NO,
                                   KC_NO,
                                   200 };
     dynamic_keymap_set_tap_dance(1, &td); // the first value corresponds to the TD(i) slot
 }
 
 void keyboard_post_init_user_td2(void) {
-    vial_tap_dance_entry_t td = { KC_NO,
-                                  MO(_09),
+    vial_tap_dance_entry_t td = { KC_WH_L,
+                                  MO(_02),
+                                  TO(_02),
                                   TO(_01),
-                                  KC_NO,
                                   200 };
     dynamic_keymap_set_tap_dance(2, &td); // the first value corresponds to the TD(i) slot
 }
@@ -99,19 +99,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      ,      KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TO(_02)   , TD(2)     , TD(1)     ,LALT_T(KC_DEL),KC_03_BSP,LSFT_T(KC_SPC),  KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
+        KC_NO     , TD(2)     , TD(1)     ,LALT_T(KC_DEL),KC_03_BSP,LSFT_T(KC_SPC),  KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
     [_01] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , RGB_TOG   ,
+        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,      KC_NO     , KC_NO     , KC_MS_U   , KC_NO     , KC_NO     , MO(_08)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_NO     , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_10_TAB , KC_NO     , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   ,     LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+        TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   ,     LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_BSPC ,LSFT_T(KC_SPC),   KC_ENT    , KC_BSPC   , KC_DEL    , KC_NO     , KC_NO     , KC_MUTE
+        TO(_00)   , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_BSPC ,LSFT_T(KC_SPC),   KC_ENT    , KC_BSPC   , KC_06_DEL , KC_NO     , KC_NO     , KC_MUTE
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
@@ -457,7 +457,7 @@ const rgblight_segment_t PROGMEM rgb_layer_05[] = RGBLIGHT_LAYER_SEGMENTS(
 //);
 
 const rgblight_segment_t PROGMEM rgb_layer_07[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_AZURE}
+    {0, 9, HSV_RED}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_08[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -469,55 +469,55 @@ const rgblight_segment_t PROGMEM rgb_layer_09[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_10[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_CORAL}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_GOLDENROD}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_PINK}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_13[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 9, HSV_PURPLE}
 );
 
-const rgblight_segment_t PROGMEM rgb_layer_14[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_SPRINGGREEN}
+const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_PINK}
 );
 
-const rgblight_segment_t PROGMEM rgb_layer_15[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_TEAL}
+const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_CORAL}
 );
 
-const rgblight_segment_t PROGMEM rgb_layer_16[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_TURQUOISE}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_17[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_WHITE}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_18[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_YELLOW}
-);
-
-const rgblight_segment_t PROGMEM rgb_layer_19[] = RGBLIGHT_LAYER_SEGMENTS(
+const rgblight_segment_t PROGMEM rgb_layer_13[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 9, HSV_ORANGE}
 );
 
+const rgblight_segment_t PROGMEM rgb_layer_14[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_GOLDENROD}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_15[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_GOLD}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_16[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_YELLOW}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_17[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_CHARTREUSE}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_18[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_GREEN}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_19[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_SPRINGGREEN}
+);
+
 const rgblight_segment_t PROGMEM rgb_layer_20[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_RED}
+    {0, 9, HSV_TURQUOISE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_21[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_MAGENTA}
+    {0, 9, HSV_TEAL}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_22[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_GOLD}
+    {0, 9, HSV_CYAN}
 );
 
 
@@ -528,7 +528,7 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     rgb_layer_03,
     rgb_layer_04,
     rgb_layer_05,
-//    rgb_layer_06     // ,不要 
+//    rgb_layer_06,
     rgb_layer_07,
     rgb_layer_08,
     rgb_layer_09,
