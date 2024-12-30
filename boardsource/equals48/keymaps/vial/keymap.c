@@ -529,11 +529,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 break;
             case _10:
                 if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
-                rgb_matrix_set_color(i, RGB_WHITE);}
+                rgb_matrix_set_color(i, RGB_PURPLE);}
                 break;
             case _11:
                 if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
-                rgb_matrix_set_color(i, RGB_RED);}
+                rgb_matrix_set_color(i, RGB_PINK);}
                 break;
             case _12:
                 if (HAS_FLAGS(g_led_config.flags[i], 0x02)) {
