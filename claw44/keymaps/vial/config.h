@@ -7,7 +7,7 @@
 
 
 /* define RP2040 PC起動時認識用（SPLIT_USB_DETECTが有効となっているため） */
-#define SPLIT_USB_TIMEOUT 8000  //Default 2000
+#define SPLIT_USB_TIMEOUT 10000  //Default 2000
 #define SPLIT_USB_TIMEOUT_POLL 25  //Default 10
 //#define USB_VBUS_PIN GP17  //SPLIT_USB_TIMEOUTを設定せずにVBUS_PINを物理的に利用する場合
 
