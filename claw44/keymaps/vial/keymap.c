@@ -112,9 +112,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,                   KC_NO     , KC_NO     , KC_MS_U   , KC_NO     , KC_NO     , MO(_09)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_NO     , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  ,LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
+        KC_10_TAB , KC_VOLU   , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  ,LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_NO     , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  ,LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
+        TD(4)     , KC_VOLD   , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  ,LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                              LALT_T(KC_DEL),KC_04_BSP , _______   , KC_03_ENT ,                   TO(_00)   , KC_05_BN1 , KC_06_BN2 , KC_07_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
