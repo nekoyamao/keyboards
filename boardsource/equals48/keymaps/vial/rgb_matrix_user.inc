@@ -23,7 +23,7 @@ static bool my_effect_goon(effect_params_t* params) {
             rgb_matrix_set_color(i, RGB_MAGENTA);
         } else if (i==18 || i==24 || i==27 || (i>=29 && i<=31)){
             rgb_matrix_set_color(i, RGB_YELLOW);
-        } else if (i==36 || i==39){
+        } else if (i==23 || (i>=35 && i<=36) || i==39){
             rgb_matrix_set_color(i, RGB_GOLDENROD);
         } else if (i>=41 && i<=44){
             rgb_matrix_set_color(i, RGB_GREEN);
