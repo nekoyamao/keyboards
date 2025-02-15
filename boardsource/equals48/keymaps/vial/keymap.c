@@ -39,10 +39,10 @@ void keyboard_post_init_user_td1(void) {
 }
 
 void keyboard_post_init_user_td2(void) {
-    vial_tap_dance_entry_t td = { KC_NO,
-                                  MO(_09),
-                                  TO(_01),
+    vial_tap_dance_entry_t td = { LCTL(KC_WH_L),
+                                  MO(_01),
                                   KC_NO,
+                                  TO(_01),
                                   200 };
     dynamic_keymap_set_tap_dance(2, &td); // the first value corresponds to the TD(i) slot
 }
@@ -74,15 +74,6 @@ void keyboard_post_init_user_td5(void) {
     dynamic_keymap_set_tap_dance(5, &td); // the first value corresponds to the TD(i) slot
 }
 
-void keyboard_post_init_user_td6(void) {
-    vial_tap_dance_entry_t td = { LCTL(KC_WH_L),
-                                  MO(_01),
-                                  KC_NO,
-                                  TO(_01),
-                                  200 };
-    dynamic_keymap_set_tap_dance(6, &td); // the first value corresponds to the TD(i) slot
-}
-
 
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -95,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      ,      KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(1)     , TD(6)     , KC_WH_R   ,LALT_T(KC_DEL),KC_03_BSP,LSFT_T(KC_SPC),  KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), MO(_09)
+        TD(1)     , TD(2)     , KC_WH_R   ,LALT_T(KC_DEL),KC_03_BSP,LSFT_T(KC_SPC),  KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), MO(_09)
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
