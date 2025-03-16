@@ -46,16 +46,16 @@ void keyboard_post_init_user_td1(void) {
     vial_tap_dance_entry_t td = { KC_WH_R,
                                   MO(_09),
                                   KC_NO,
-                                  KC_NO,
+                                  TO(_01),
                                   200 };
     dynamic_keymap_set_tap_dance(1, &td); // the first value corresponds to the TD(i) slot
 }
 
 void keyboard_post_init_user_td2(void) {
     vial_tap_dance_entry_t td = { KC_WH_L,
-                                  MO(_02),
+                                  KC_NO,
+                                  KC_NO,
                                   TO(_02),
-                                  TO(_01),
                                   200 };
     dynamic_keymap_set_tap_dance(2, &td); // the first value corresponds to the TD(i) slot
 }
@@ -75,7 +75,7 @@ void keyboard_post_init_user_td4(void) {
                                   KC_NO,
                                   KC_LCTL,
                                   200 };
-    dynamic_keymap_set_tap_dance(3, &td); // the first value corresponds to the TD(i) slot
+    dynamic_keymap_set_tap_dance(4, &td); // the first value corresponds to the TD(i) slot
 }
 
 void keyboard_post_init_user_td5(void) {
@@ -84,9 +84,26 @@ void keyboard_post_init_user_td5(void) {
                                   KC_NO,
                                   KC_NO,
                                   200 };
-    dynamic_keymap_set_tap_dance(3, &td); // the first value corresponds to the TD(i) slot
+    dynamic_keymap_set_tap_dance(5, &td); // the first value corresponds to the TD(i) slot
 }
 
+void keyboard_post_init_user_td6(void) {
+    vial_tap_dance_entry_t td = { LCTL(KC_F13),
+                                  KC_LALT,
+                                  KC_NO,
+                                  KC_NO,
+                                  200 };
+    dynamic_keymap_set_tap_dance(6, &td); // the first value corresponds to the TD(i) slot
+}
+
+void keyboard_post_init_user_td7(void) {
+    vial_tap_dance_entry_t td = { LCTL(KC_ENT),
+                                  MO(_03),
+                                  KC_NO,
+                                  KC_NO,
+                                  100 };
+    dynamic_keymap_set_tap_dance(7, &td); // the first value corresponds to the TD(i) slot
+}
 
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -99,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      ,      KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , TD(2)     , TD(1)     ,LALT_T(KC_DEL),KC_03_BSP,LSFT_T(KC_SPC),  KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
+        KC_NO     , TD(2)     , TD(1)     , TD(6)     , TD(7)     ,LSFT_T(KC_SPC),   KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
