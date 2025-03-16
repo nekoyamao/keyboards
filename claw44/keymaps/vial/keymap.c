@@ -112,7 +112,6 @@ void keyboard_post_init_user_td7(void) {
     dynamic_keymap_set_tap_dance(7, &td); // the first value corresponds to the TD(i) slot
 }
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_00] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
