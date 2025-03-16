@@ -82,7 +82,7 @@ void keyboard_post_init_user_td4(void) {
                                   KC_NO,
                                   KC_LCTL,
                                   200 };
-    dynamic_keymap_set_tap_dance(3, &td); // the first value corresponds to the TD(i) slot
+    dynamic_keymap_set_tap_dance(4, &td); // the first value corresponds to the TD(i) slot
 }
 
 void keyboard_post_init_user_td5(void) {
@@ -91,7 +91,25 @@ void keyboard_post_init_user_td5(void) {
                                   KC_NO,
                                   KC_NO,
                                   200 };
-    dynamic_keymap_set_tap_dance(3, &td); // the first value corresponds to the TD(i) slot
+    dynamic_keymap_set_tap_dance(5, &td); // the first value corresponds to the TD(i) slot
+}
+
+void keyboard_post_init_user_td6(void) {
+    vial_tap_dance_entry_t td = { LCTL(KC_F13),
+                                  KC_LALT,
+                                  KC_NO,
+                                  KC_NO,
+                                  200 };
+    dynamic_keymap_set_tap_dance(6, &td); // the first value corresponds to the TD(i) slot
+}
+
+void keyboard_post_init_user_td7(void) {
+    vial_tap_dance_entry_t td = { LCTL(KC_ENT),
+                                  MO(_04),
+                                  KC_NO,
+                                  KC_NO,
+                                  100 };
+    dynamic_keymap_set_tap_dance(7, &td); // the first value corresponds to the TD(i) slot
 }
 
 
@@ -104,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      , KC_NO  , KC_NO  , KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-                             LALT_T(KC_DEL),KC_04_BSP ,LSFT_T(KC_SPC), TD(1)  ,                   TD(2)     , KC_05_ENT , KC_06_BSP , KC_07_DEL
+                                TD(6)     , TD(7)     ,LSFT_T(KC_SPC), TD(1)  ,                   TD(2)     , KC_05_ENT , KC_06_BSP , KC_07_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
     ),
 
