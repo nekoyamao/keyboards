@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum layer_number {
     _00, _01, _02, _03, _04, _05, _06, _07, _08, _09, _10, _11, _12, _13, _14, _15,
-    _16, _17, _18, _19, _20
+    _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31,
 };
 
 
@@ -36,7 +36,7 @@ enum layer_number {
 #define KC_07_DEL LT(_07,KC_DEL)
 #define KC_09_TAB LT(_09,KC_TAB)
 #define KC_10_TAB LT(_10,KC_TAB)
-#define KC_10_MNS LT(_10,KC_MINS)
+#define KC_10_QOT LT(_10,KC_QUOT)
 #define KC_11_SLH LT(_11,KC_SLSH)
 
 
@@ -51,7 +51,7 @@ void keyboard_post_init_user_td0(void) {
 
 void keyboard_post_init_user_td1(void) {
     vial_tap_dance_entry_t td = { KC_ENT,
-                                  MO(_03),
+                                  MO(_01),
                                   KC_NO,
                                   TO(_01),
                                   200 };
@@ -117,9 +117,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         TD(0)     , KC_Q      , KC_W      , KC_E      , KC_R      , KC_T      ,                   KC_Y      , KC_U      , KC_I      , KC_O      , KC_P      ,RGUI_T(KC_SCLN),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_A      , KC_S      , KC_D      , KC_F      , KC_G      , KC_MUTE, KC_NO  , KC_H      , KC_J      , KC_K      , KC_L      , KC_10_MNS , KC_QUOT   ,
+        KC_10_TAB , KC_A      , KC_S      , KC_D      , KC_F      , KC_G      , KC_MUTE, KC_NO  , KC_H      , KC_J      , KC_K      , KC_L      , KC_MINS   , KC_10_QOT ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      , KC_NO  , KC_NO  , KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
+        KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      , KC_NO  , KC_NO  , KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_SLSH   , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                                 TD(6)     , TD(7)     ,LSFT_T(KC_SPC), TD(1)  ,                   TD(2)     , KC_05_ENT , KC_06_BSP , KC_07_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -127,11 +127,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_01] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,                   KC_NO     , KC_NO     , KC_MS_U   , KC_NO     , KC_NO     , MO(_09)   ,
+        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,                   KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_U   , KC_WH_R   , MO(_09)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_VOLU   , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  ,LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
+        KC_10_TAB , KC_VOLU   , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   , KC_MUTE, KC_NO  ,LALT(KC_RGHT), KC_MS_L , KC_MS_D   , KC_MS_U   , KC_MS_L   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_VOLD   , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  ,LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
+        TD(4)     , KC_VOLD   , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   , KC_NO  , KC_NO  ,LALT(KC_LEFT), KC_LEFT , KC_DOWN   , KC_UP     , KC_RGHT   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                              LALT_T(KC_DEL),KC_04_BSP , _______   , KC_03_ENT ,                   TO(_00)   , KC_05_BN1 , KC_06_BN2 , KC_07_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -240,11 +240,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_10] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     ,LALT(KC_LEFT), KC_WH_U ,LALT(KC_RGHT), KC_NO   , KC_NO     ,                   KC_NO     , KC_NO   , KC_MS_U   , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     ,LALT(KC_LEFT), KC_WH_U ,LALT(KC_RGHT), KC_NO   , KC_NO     ,                   KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_R   , KC_NO     , KC_NO     , KC_NO , KC_NO  ,LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
+        KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_R   , KC_NO     , KC_NO     , KC_NO , KC_NO   ,LALT(KC_RGHT), KC_MS_L , KC_MS_D   , KC_MS_U   , KC_MS_L   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO , KC_NO  ,LALT(KC_RGHT), KC_WH_L   , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO , KC_NO   ,LALT(KC_LEFT), KC_LEFT , KC_DOWN   , KC_UP     , KC_RGHT   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                                 KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , KC_BTN1   , KC_BTN2   , KC_NO
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -255,9 +255,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_UP     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_UP     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_LEFT   , KC_DOWN   , KC_RGHT   , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_LEFT   , KC_DOWN   , KC_RGHT   , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                                 KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -367,7 +367,151 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
     ),
 
+
     [_20] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_21] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_22] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_23] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_24] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_25] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_26] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_27] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_28] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_29] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_30] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
+                                KC_NO     , KC_NO     , _______   , KC_NO     ,                   KC_NO     , _______   , KC_NO     , KC_NO
+    //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
+    ),
+
+
+    [_31] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,                   KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -409,6 +553,17 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_18] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
     [_19] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
     [_20] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_21] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_22] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_23] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_24] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_25] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_26] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_27] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_28] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_29] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_30] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_31] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
 };
 #endif
 
@@ -425,7 +580,7 @@ const rgblight_segment_t PROGMEM rgb_layer_02[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_GOLD}
 );
 const rgblight_segment_t PROGMEM rgb_layer_03[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_WHITE}
+    {0, 12, HSV_TEAL}
 );
 const rgblight_segment_t PROGMEM rgb_layer_04[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_CYAN}
@@ -478,6 +633,39 @@ const rgblight_segment_t PROGMEM rgb_layer_19[] = RGBLIGHT_LAYER_SEGMENTS(
 const rgblight_segment_t PROGMEM rgb_layer_20[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_TURQUOISE}
 );
+const rgblight_segment_t PROGMEM rgb_layer_21[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_TEAL}
+);
+const rgblight_segment_t PROGMEM rgb_layer_22[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_CYAN}
+);
+const rgblight_segment_t PROGMEM rgb_layer_23[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_AZURE}
+);
+const rgblight_segment_t PROGMEM rgb_layer_24[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_BLUE}
+);
+const rgblight_segment_t PROGMEM rgb_layer_25[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_PURPLE)
+);
+const rgblight_segment_t PROGMEM rgb_layer_26[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_MAGENTA}
+);
+const rgblight_segment_t PROGMEM rgb_layer_27[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_PINK}
+);
+const rgblight_segment_t PROGMEM rgb_layer_28[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_RED}
+);
+const rgblight_segment_t PROGMEM rgb_layer_29[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_CORAL}
+);
+const rgblight_segment_t PROGMEM rgb_layer_30[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_YELLOW}
+);
+const rgblight_segment_t PROGMEM rgb_layer_31[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 12, HSV_TURQUOISE}
+);
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 //    rgb_layer_00,
@@ -500,7 +688,18 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     rgb_layer_17,
     rgb_layer_18,
     rgb_layer_19,
-    rgb_layer_20      // ,不要
+    rgb_layer_20,
+    rgb_layer_21,
+    rgb_layer_22,
+    rgb_layer_23,
+    rgb_layer_24,
+    rgb_layer_25,
+    rgb_layer_26,
+    rgb_layer_27,
+    rgb_layer_28,
+    rgb_layer_29,
+    rgb_layer_30,
+    rgb_layer_31      // ,不要
 );
 
 void keyboard_post_init_user(void) {
@@ -529,6 +728,17 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(16, layer_state_cmp(state, _18));
     rgblight_set_layer_state(17, layer_state_cmp(state, _19));
     rgblight_set_layer_state(18, layer_state_cmp(state, _20));
+    rgblight_set_layer_state(19, layer_state_cmp(state, _21));
+    rgblight_set_layer_state(20, layer_state_cmp(state, _22));
+    rgblight_set_layer_state(21, layer_state_cmp(state, _23));
+    rgblight_set_layer_state(22, layer_state_cmp(state, _24));
+    rgblight_set_layer_state(23, layer_state_cmp(state, _25));
+    rgblight_set_layer_state(24, layer_state_cmp(state, _26));
+    rgblight_set_layer_state(25, layer_state_cmp(state, _27));
+    rgblight_set_layer_state(26, layer_state_cmp(state, _28));
+    rgblight_set_layer_state(27, layer_state_cmp(state, _29));
+    rgblight_set_layer_state(28, layer_state_cmp(state, _30));
+    rgblight_set_layer_state(29, layer_state_cmp(state, _31));
     return state;
 }
 #endif
@@ -543,27 +753,27 @@ layer_state_t layer_state_set_user(layer_state_t state){
 //            rgb_matrix_sethsv_noeeprom(HSV_RED);
 //            break;
         case _01:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_HUE_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
             break;
         case _02:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_HUE_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_GOLD);
             break;
         case _03:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
-            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_sethsv_noeeprom(HSV_TEAL);
             break;
         case _04:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_CYAN);
             break;
         case _05:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_BLUE);
             break;
         case _06:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_GREEN);
             break;
 //        case _07:
@@ -571,56 +781,100 @@ layer_state_t layer_state_set_user(layer_state_t state){
 //            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
 //            break;
         case _08:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
             rgb_matrix_sethsv_noeeprom(HSV_RED);
             break;
         case _09:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
             rgb_matrix_sethsv_noeeprom(HSV_CHARTREUSE);
             break;
         case _10:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
+            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
             break;
         case _11:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_GOLDENROD);
-            break;
-        case _12:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_PINK);
             break;
+        case _12:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
+            break;
         case _13:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_ORANGE);
             break;
         case _14:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GOLDENROD);
             break;
         case _15:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_TEAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GOLD);
             break;
         case _16:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
-            break;
-        case _17:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_WHITE);
-            break;
-        case _18:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
             break;
+        case _17:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CHARTREUSE);
+            break;
+        case _18:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+            break;
         case _19:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_ORANGE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
             break;
         case _20:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
+            break;
+        case _21:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TEAL);
+            break;
+        case _22:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CYAN);
+            break;
+        case _23:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_AZURE);
+            break;
+        case _24:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_BLUE);
+            break;
+        case _25:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
+            break;
+        case _26:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
+            break;
+        case _27:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_PINK);
+            break;
+        case _28:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_RED);
+            break;
+        case _29:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
+            break;
+        case _30:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
+            break;
+        case _31:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
             break;
        default:
             rgb_matrix_reload_from_eeprom();
@@ -1177,6 +1431,269 @@ static void render_logo_20(void) {
     oled_write_raw_P(my_logo, sizeof(my_logo));
 }
 
+static void render_logo_21(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0x08, 0x04, 0x02, 0xb1, 0x49, 0x49, 0x49, 0xb1, 0x02, 0x04, 0x08, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x02, 0x04, 0x08, 0x11, 0x12, 0x12, 0x12, 0x11, 0x88, 0xc4, 0xe2, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0x82, 0x01, 0x00, 0xc4, 0xa2, 0x92, 0x92, 0x8c, 0x00, 0x01, 0x82, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_22(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0x08, 0x04, 0x02, 0xb1, 0x49, 0x49, 0x49, 0xb1, 0x02, 0x04, 0x08, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x02, 0x04, 0x08, 0x11, 0x12, 0x12, 0x12, 0x11, 0x88, 0xc4, 0xe2, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x40, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0x82, 0x01, 0x00, 0x84, 0x82, 0xfe, 0x80, 0x80, 0x00, 0x01, 0x82, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_23(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0x08, 0x04, 0x02, 0xb1, 0x49, 0x49, 0x49, 0xb1, 0x02, 0x04, 0x08, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x02, 0x04, 0x08, 0x11, 0x12, 0x12, 0x12, 0x11, 0x88, 0xc4, 0xe2, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_24(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0x47, 0x23, 0x11, 0x08, 0x88,
+0x48, 0xc8, 0x08, 0x11, 0x23, 0x47, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x40, 0x8f, 0x10, 0x20, 0x40, 0x86, 0x85,
+0x84, 0x9f, 0x84, 0x40, 0x20, 0x10, 0x8f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0x82, 0x01, 0x00, 0x84, 0x82, 0xfe, 0x80, 0x80, 0x00, 0x01, 0x82, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0x82, 0x01, 0x00, 0xc4, 0xa2, 0x92, 0x92, 0x8c, 0x00, 0x01, 0x82, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_25(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0x47, 0x23, 0x11, 0x08, 0x88,
+0x48, 0xc8, 0x08, 0x11, 0x23, 0x47, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x10, 0x20, 0x40, 0x86, 0x85,
+0x84, 0x9f, 0x84, 0x40, 0x20, 0x10, 0x8f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0x82, 0x01, 0x00, 0xc4, 0xa2, 0x92, 0x92, 0x8c, 0x00, 0x01, 0x82, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_26(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0x47, 0x23, 0x11, 0x08, 0x88,
+0x48, 0xc8, 0x08, 0x11, 0x23, 0x47, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x40, 0x8f, 0x10, 0x20, 0x40, 0x86, 0x85,
+0x84, 0x9f, 0x84, 0x40, 0x20, 0x10, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0x82, 0x01, 0x00, 0x84, 0x82, 0xfe, 0x80, 0x80, 0x00, 0x01, 0x82, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_27(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0x47, 0x23, 0x11, 0x08, 0x88,
+0x48, 0xc8, 0x08, 0x11, 0x23, 0x47, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x10, 0x20, 0x40, 0x86, 0x85,
+0x84, 0x9f, 0x84, 0x40, 0x20, 0x10, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_28(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0xc7, 0xe3, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x40, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0x82, 0x01, 0x00, 0x84, 0x82, 0xfe, 0x80, 0x80, 0x00, 0x01, 0x82, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0x82, 0x01, 0x00, 0xc4, 0xa2, 0x92, 0x92, 0x8c, 0x00, 0x01, 0x82, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_29(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0xc7, 0xe3, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0x40, 0x40, 0x40, 0x40, 0x40, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0x82, 0x01, 0x00, 0xc4, 0xa2, 0x92, 0x92, 0x8c, 0x00, 0x01, 0x82, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_30(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0xc7, 0xe3, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0x40, 0x40, 0x40, 0x40, 0x40, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0x82, 0x01, 0x00, 0x84, 0x82, 0xfe, 0x80, 0x80, 0x00, 0x01, 0x82, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x02, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
+
+static void render_logo_31(void) {
+    
+    static const char PROGMEM my_logo[] = {
+        // Paste the code from the previous step below this line!
+
+0x00, 0xf0, 0xf8, 0xfc, 0xfe, 0x4f, 0xb7, 0xb7, 0xb7, 0x4f, 0xfe, 0xfc, 0xf8, 0xf0, 0x00, 0x00,
+0x00, 0x00, 0x00, 0xf0, 0xf8, 0xec, 0x06, 0xff, 0x0f, 0xb7, 0xb7, 0xb7, 0x6e, 0xfc, 0xf8, 0xf0,
+
+0x00, 0x01, 0x03, 0x07, 0x0f, 0x1e, 0x1d, 0x1d, 0x1d, 0x1e, 0x8f, 0xc7, 0xe3, 0xf1, 0xf8, 0x78,
+0xb8, 0x38, 0xf8, 0xf1, 0xe3, 0xc7, 0x8c, 0x1f, 0x1e, 0x1d, 0x1d, 0x1d, 0x0e, 0x07, 0x03, 0x01,
+
+0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x8f, 0x1f, 0x3f, 0x7f, 0xf9, 0xfa,
+0xfb, 0xe0, 0xfb, 0x7f, 0x3f, 0x1f, 0x8f, 0xc0, 0xc0, 0xc0, 0xc0, 0xc0, 0x80, 0x00, 0x00, 0x00,
+
+0x00, 0x7c, 0xfe, 0xff, 0xff, 0x7b, 0x7d, 0x01, 0x7f, 0x7f, 0xff, 0xff, 0xfe, 0x7c, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x7c, 0xfe, 0xff, 0xff, 0x3b, 0x5d, 0x6d, 0x6d, 0x73, 0xff, 0xff, 0xfe, 0x7c,
+
+0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x07, 0x07, 0x07, 0x03, 0x01, 0x00, 0x00
+    };
+
+    oled_write_raw_P(my_logo, sizeof(my_logo));
+}
 
 /* OLEDの表示内容の設定 容量削減のためカット_復活させる場合は、下記のロゴのstate_1をstate_2に変更する*/
 
@@ -1216,7 +1733,7 @@ void render_layer_state_1(void) {
             oled_write_ln_P(PSTR("-Mous"), false);
             break;
         case _11:
-            oled_write_ln_P(PSTR("-Arow"), false);
+            oled_write_ln_P(PSTR("-    "), false);
             break;
         case _12:
             oled_write_ln_P(PSTR("-    "), false);
@@ -1243,6 +1760,39 @@ void render_layer_state_1(void) {
             oled_write_ln_P(PSTR("-    "), false);
             break;
         case _20:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _21:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _22:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _23:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _24:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _25:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _26:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _27:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _28:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _29:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _30:
+            oled_write_ln_P(PSTR("-    "), false);
+            break;
+        case _31:
             oled_write_ln_P(PSTR("-    "), false);
             break;
     }
@@ -1313,6 +1863,39 @@ void render_layer_state_2(void) {
             break;
         case _20:
             render_logo_20();
+            break;
+        case _21:
+            render_logo_21();
+            break;
+        case _22:
+            render_logo_22();
+            break;
+        case _23:
+            render_logo_23();
+            break;
+        case _24:
+            render_logo_24();
+            break;
+        case _25:
+            render_logo_25();
+            break;
+        case _26:
+            render_logo_26();
+            break;
+        case _27:
+            render_logo_27();
+            break;
+        case _28:
+            render_logo_28();
+            break;
+        case _29:
+            render_logo_29();
+            break;
+        case _30:
+            render_logo_30();
+            break;
+        case _31:
+            render_logo_31();
             break;
     }
 }
