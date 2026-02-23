@@ -21,15 +21,15 @@ static bool my_effect_goon(effect_params_t* params) {
             rgb_matrix_set_color(i, RGB_PINK);
         } else if (i==10 || i==21 || i==22 || i==28 || i==34 || i==40 || i==49 || (i>=51 && i<=52) || i==54 || i==57) {
             rgb_matrix_set_color(i, RGB_MAGENTA);
-        } else if (i==18 || i==24 || i==27 || (i>=29 && i<=31)){
+        } else if (i==24 || i==27 || (i>=29 && i<=32)){
             rgb_matrix_set_color(i, RGB_YELLOW);
         } else if (i==23 || (i>=35 && i<=36) || i==39){
             rgb_matrix_set_color(i, RGB_GOLDENROD);
-        } else if (i>=41 && i<=44){
+        } else if (i>=17 && i<=20){
             rgb_matrix_set_color(i, RGB_GREEN);
         } else if (i==26){
             rgb_matrix_set_color(i, RGB_BLUE);
-        } else if (i>=37 && i<=38){
+        } else if ((i>=37 && i<=38) || (i>=41 && i<=44)){
             rgb_matrix_set_color(i, RGB_PURPLE);
         } else if (i==50 || i==53) {
             rgb_matrix_set_color(i, RGB_SPRINGGREEN);
@@ -222,10 +222,12 @@ static bool my_effect_mouse(effect_params_t* params) {
     for (uint8_t i = led_min; i < led_max; i++) {
         if (i==11 || i==13 || i==28 || i==40) {
             rgb_matrix_set_color(i, RGB_MAGENTA);
-        } else if (i==18 || (i>=29 && i<=31)){
-            rgb_matrix_set_color(i, RGB_YELLOW);
-        } else if (i==12 || (i>=23 && i<=25) || (i>=41 && i<=44)){
+        } else if (i==12 || (i>=17 && i<=20) || (i>=23 && i<=25)){
             rgb_matrix_set_color(i, RGB_GREEN);
+        } else if (i>=29 && i<=32){
+            rgb_matrix_set_color(i, RGB_YELLOW);
+        } else if (i>=41 && i<=44){
+            rgb_matrix_set_color(i, RGB_PURPLE);
         } else if (i>=52 && i<=53){
             rgb_matrix_set_color(i, RGB_BLUE);
         } else {
@@ -242,7 +244,7 @@ static bool my_effect_arrow(effect_params_t* params) {
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
 
     for (uint8_t i = led_min; i < led_max; i++) {
-        if (i==25 || (i>=36 && i<=38) || i==30 || (i>=41 && i<=43)) {
+        if ((i>=23 && i<=26) || (i>=29 && i<=32) || (i>=35 && i<=38) || (i>=41 && i<=44)) {
             rgb_matrix_set_color(i, RGB_PURPLE);
         } else {
             rgb_matrix_set_color(i, RGB_OFF);
