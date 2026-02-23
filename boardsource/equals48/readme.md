@@ -14,11 +14,11 @@ A compact 40% (12x4) ortholinear keyboard kit sold by Boardsource.
 Specification:
 * **MCU**: Necessary to upgrade to RP2040
 * **Layout**: Support for multi-layout, 48 Keys and 2u Spacebar
-* **Layers**: 30 layers
+* **Layers**: 32 layers
 * **LED**: Support for RGB Matrix, per key RGB and underglow
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
-* **Macro**: Supported and 16 settings are available
+* **Macro**: Supported and 32 settings are available
 * **Extrakey**: Supported
 * **Mousekey**: Supported
 * **N-key Rollover**: Supported
