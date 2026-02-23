@@ -13,13 +13,13 @@ A split keyboard with 3x6 vertically staggered keys and 4 thumb keys.
 
 Specification:
 * **MCU**: Necessary to upgrade to RP2040 and please see [blog](https://note.com/nekoyamaou/n/n1f1c29d85832)
-* **Layers**: 21 layers
+* **Layers**: 32 layers
 * **Rotary Encoder**: Support for 4 rotary encoders
 * **OLED**: Supported
 * **LED**: Support for RGB Matrix and 6 LEDs for each side
 * **Tap Dance**: Supported and 32 settings are available
 * **Combo**: Supported and 32 settings are available
-* **Macro**: Supported and 16 settings are available
+* **Macro**: Supported and 32 settings are available
 * **Extrakey**: Supported
 * **Mousekey**: Supported
 * **N-key Rollover**: Supported
