@@ -8,9 +8,17 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U
 
 
+/* EEPROM Driver Configuration (RP2040用でレイヤー数の増加用に追加)*/
+#define WEAR_LEVELING_LOGICAL_SIZE 8192 /*8192 is just an example*/
+#define WEAR_LEVELING_BACKING_SIZE 16384 // (WEAR_LEVELING_LOGICAL_SIZE * 2)
+
+
 /* define layer size */
-#define DYNAMIC_KEYMAP_LAYER_COUNT 30
-#define LAYER_STATE_30BIT
+#define DYNAMIC_KEYMAP_LAYER_COUNT 32
+
+
+/* define macro size */
+#define DYNAMIC_KEYMAP_MACRO_COUNT 32
 
 
 /* define VIAL用 */
@@ -21,9 +29,8 @@
 
 #ifdef RGB_MATRIX_ENABLE
 #define RGBLIGHT_LAYERS           // レイヤーとの連動機能の有効化
-#define RGBLIGHT_MAX_LAYERS 30   // 連動するレイヤー数(最大32)
+#define RGBLIGHT_MAX_LAYERS 32    // 連動するレイヤー数(最大32)
 #define WS2812_PIO_USE_PIO1       // RP2040用に追加
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define RGB_MATRIX_KEYPRESSES
 #endif
-
