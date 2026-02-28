@@ -781,15 +781,15 @@ layer_state_t layer_state_set_user(layer_state_t state){
 //            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
 //            break;
         case _08:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_RED);
             break;
         case _09:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_CHARTREUSE);
             break;
         case _10:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_BAND_SPIRAL_VAL);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
             break;
         case _11:
@@ -881,6 +881,29 @@ layer_state_t layer_state_set_user(layer_state_t state){
     }
   return state;
 }
+
+
+/* Sync the time-out of split keyboard */
+#include "rgb_matrix.h"
+
+static uint32_t last_activity_time = 0;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        last_activity_time = timer_read32();
+    }
+    return true;
+}
+
+void matrix_scan_user(void) {
+    uint32_t current_time = timer_read32();
+    if (current_time - last_activity_time > RGB_MATRIX_TIMEOUT) {
+        rgb_matrix_set_suspend_state(true);
+    } else {
+        rgb_matrix_set_suspend_state(false);
+    }
+}
+
 #endif 
 
 
