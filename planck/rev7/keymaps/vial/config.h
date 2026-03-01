@@ -16,6 +16,12 @@
 
 #pragma once
 
+
+/* define layer size */
+#define DYNAMIC_KEYMAP_LAYER_COUNT 23
+#define LAYER_STATE_24BIT
+
+
 #define VIAL_KEYBOARD_UID {0x15, 0x7A, 0x22, 0xE6, 0x43, 0x1F, 0xBB, 0x21}
 #define VIAL_UNLOCK_COMBO_ROWS {0, 0}
 #define VIAL_UNLOCK_COMBO_COLS {0, 1}
