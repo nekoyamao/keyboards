@@ -601,10 +601,10 @@ const rgblight_segment_t PROGMEM rgb_layer_09[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_CHARTREUSE}
 );
 const rgblight_segment_t PROGMEM rgb_layer_10[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_PURPLE}
+    {0, 12, HSV_PINK}
 );
 const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 12, HSV_PINK}
+    {0, 12, HSV_PURPLE}
 );
 const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 12, HSV_CORAL}
@@ -790,11 +790,11 @@ layer_state_t layer_state_set_user(layer_state_t state){
             break;
         case _10:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
-            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_PINK);
             break;
         case _11:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
-            rgb_matrix_sethsv_noeeprom(HSV_PINK);
+            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
             break;
         case _12:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
@@ -1996,3 +1996,4 @@ bool oled_task_user(void) {
 */
 
 #endif
+
