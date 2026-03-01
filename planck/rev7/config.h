@@ -17,7 +17,6 @@
 
 #pragma once
 
-
 /* key matrix size */
 /*
  * Keyboard Matrix Assignments
