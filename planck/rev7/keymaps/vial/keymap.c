@@ -29,7 +29,7 @@ enum planck_layers {
 #define KC_06_DEL LT(_06,KC_DEL)
 #define KC_08_TAB LT(_08,KC_TAB)
 #define KC_10_TAB LT(_10,KC_TAB)
-#define KC_10_MNS LT(_10,KC_MINS)
+#define KC_10_QOT LT(_10,KC_QUOT)
 #define KC_11_SLH LT(_11,KC_SLSH)
 
 
@@ -43,8 +43,8 @@ void keyboard_post_init_user_td0(void) {
 }
 
 void keyboard_post_init_user_td1(void) {
-    vial_tap_dance_entry_t td = { KC_WH_R,
-                                  MO(_09),
+    vial_tap_dance_entry_t td = { KC_WH_L,
+                                  MO(_01),
                                   KC_NO,
                                   TO(_01),
                                   200 };
@@ -52,8 +52,8 @@ void keyboard_post_init_user_td1(void) {
 }
 
 void keyboard_post_init_user_td2(void) {
-    vial_tap_dance_entry_t td = { KC_WH_L,
-                                  KC_NO,
+    vial_tap_dance_entry_t td = { KC_WH_R,
+                                  MO(_09),
                                   KC_NO,
                                   TO(_02),
                                   200 };
@@ -112,21 +112,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         TD(0)     , KC_Q      , KC_W      , KC_E      , KC_R      , KC_T      ,      KC_Y      , KC_U      , KC_I      , KC_O      , KC_P      ,RGUI_T(KC_SCLN),
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_A      , KC_S      , KC_D      , KC_F      , KC_G      ,      KC_H      , KC_J      , KC_K      , KC_L      , KC_10_MNS , KC_QUOT   ,
+        KC_10_TAB , KC_A      , KC_S      , KC_D      , KC_F      , KC_G      ,      KC_H      , KC_J      , KC_K      , KC_L      , KC_MINS   , KC_10_QOT ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      ,      KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_11_SLH , KC_BSLS   ,
+        KC_LCTL   , KC_Z      , KC_X      , KC_C      , KC_V      , KC_B      ,      KC_N      , KC_M      , KC_COMM   , KC_DOT    , KC_SLSH   , KC_BSLS   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , TD(2)     , TD(1)     , TD(6)     , TD(7)     ,LSFT_T(KC_SPC),   KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
+        KC_NO     , TD(1)     , TD(2)     , TD(6)     , TD(7)     ,LSFT_T(KC_SPC),   KC_04_ENT , KC_05_BSP , KC_06_DEL , RCS(KC_M) , LALT(KC_A), KC_MUTE
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
     [_01] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,      KC_NO     , KC_NO     , KC_MS_U   , KC_NO     , KC_NO     , MO(_08)   ,
+        TD(3)     , KC_MUTE   , LCTL(KC_W), LGUI(KC_E),LALT(KC_F4), KC_NO     ,      KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_U   , KC_WH_R   , MO(_08)   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_VOLU   , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   ,     LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
+        KC_10_TAB , KC_VOLU   , KC_MS_L   , LGUI(KC_D), KC_BTN1   , KC_MS_R   ,     LALT(KC_RGHT), KC_MS_L , KC_MS_D   , KC_MS_U   , KC_MS_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_VOLD   , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   ,     LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
+        TD(4)     , KC_VOLD   , KC_MPRV   , KC_LEFT   , KC_RGHT   , KC_MNXT   ,     LALT(KC_LEFT), KC_LEFT , KC_DOWN   , KC_UP     , KC_RGHT   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         TO(_00)   , KC_NO     , KC_NO     ,LALT_T(KC_DEL),KC_BSPC ,LSFT_T(KC_SPC),   KC_ENT    , KC_BSPC   , KC_06_DEL , KC_NO     , KC_NO     , KC_MUTE
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -230,11 +230,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_10] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     ,LALT(KC_LEFT), KC_WH_U ,LALT(KC_RGHT), KC_NO   , KC_NO     ,      KC_NO     , KC_NO     , KC_MS_U   , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     ,LALT(KC_LEFT), KC_WH_U ,LALT(KC_RGHT), KC_NO   , KC_NO     ,      KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_R   , KC_NO     , KC_NO     ,     LALT(KC_LEFT), KC_MS_L , KC_MS_D   , KC_MS_R   , KC_NO     , KC_NO     ,
+        KC_NO     , KC_WH_L   , KC_WH_D   , KC_WH_R   , KC_NO     , KC_NO     ,     LALT(KC_RGHT), KC_MS_L , KC_MS_D   , KC_MS_U   , KC_MS_R   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,     LALT(KC_RGHT), KC_WH_L , KC_WH_D   , KC_WH_U   , KC_WH_R   , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,     LALT(KC_LEFT), KC_LEFT , KC_DOWN   , KC_UP     , KC_RGHT   , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_BTN1   , KC_BTN2   , KC_NO     , KC_NO     , KC_NO     , KC_NO
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -244,9 +244,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_NO     , KC_UP     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_UP     , KC_NO     , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_NO     , KC_NO     , KC_LEFT   , KC_DOWN   , KC_RGHT   , KC_NO     ,      KC_NO     , KC_LEFT   , KC_DOWN   , KC_RGHT   , KC_NO     , KC_NO     ,
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
         KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -392,9 +392,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_MAP_ENABLE)
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [_00] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_WH_R, KC_WH_L),
+    [_00] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_LEFT, KC_RGHT),
               ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_01] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_RGHT, KC_LEFT),
+    [_01] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_LEFT, KC_RGHT),
               ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
     [_02] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_WH_D, KC_WH_U),
               ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
@@ -486,11 +486,11 @@ const rgblight_segment_t PROGMEM rgb_layer_09[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_10[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_PURPLE}
+    {0, 9, HSV_PINK}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_11[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 9, HSV_PINK}
+    {0, 9, HSV_PURPLE}
 );
 
 const rgblight_segment_t PROGMEM rgb_layer_12[] = RGBLIGHT_LAYER_SEGMENTS(
@@ -615,15 +615,15 @@ layer_state_t layer_state_set_user(layer_state_t state){
             rgb_matrix_sethsv_noeeprom(HSV_GOLD);
             break;
         case _03:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_CYAN);
             break;
         case _04:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_BLUE);
             break;
         case _05:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_GREEN);
             break;
 //        case _06:
@@ -631,68 +631,68 @@ layer_state_t layer_state_set_user(layer_state_t state){
 //            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
 //            break;
         case _07:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_AZURE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
+            rgb_matrix_sethsv_noeeprom(HSV_RED);
             break;
         case _08:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_CHARTREUSE);
             break;
         case _09:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_ORANGE);
             break;
         case _10:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
-            break;
-        case _11:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_GOLDENROD);
-            break;
-        case _12:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
             rgb_matrix_sethsv_noeeprom(HSV_PINK);
             break;
-        case _13:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+        case _11:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
             break;
-        case _14:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
+        case _12:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
             break;
-        case _15:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_TEAL);
-            break;
-        case _16:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
-            break;
-        case _17:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_WHITE);
-            break;
-        case _18:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
-            break;
-        case _19:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+        case _13:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_ORANGE);
             break;
+        case _14:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GOLDENROD);
+            break;
+        case _15:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GOLD);
+            break;
+        case _16:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
+            break;
+        case _17:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CHARTREUSE);
+            break;
+        case _18:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
+            break;
+        case _19:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_SPRINGGREEN);
+            break;
         case _20:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_RED);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
             break;
         case _21:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TEAL);
             break;
         case _22:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-            rgb_matrix_sethsv_noeeprom(HSV_GOLD);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CYAN);
             break;
        default:
             rgb_matrix_reload_from_eeprom();
@@ -710,3 +710,4 @@ const uint8_t music_map[MATRIX_ROWS][MATRIX_COLS] = LAYOUT(
 	 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11
 );
 #endif
+
