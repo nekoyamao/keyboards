@@ -17,9 +17,6 @@
 
 #pragma once
 
-/* define layer size */
-#define DYNAMIC_KEYMAP_LAYER_COUNT 23
-#define LAYER_STATE_24BIT
 
 /* key matrix size */
 /*
