@@ -7,7 +7,7 @@ A compact 40% (12x4) ortholinear keyboard kit sold by Boardsource.
 * Keyboard Maintainer: [Cole Smith](https://github.com/boardsource)
 * Hardware Supported: Equals Kit
 * Hardware Availability: [boardsource](https://boardsource.xyz)
-* MUC Supported: RP2040
+* MCU Supported: RP2040
 
 ## Source code for Vial port
 
