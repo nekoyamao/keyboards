@@ -139,11 +139,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_02] = LAYOUT(
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(5)     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_PERC   ,                   KC_NO     , KC_P7     , KC_P8     , KC_P9     ,LSFT(KC_EQL),LSFT(KC_8),
+        TD(5)     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_PERC   ,                   KC_NO     , KC_7      , KC_8      , KC_9      ,LSFT(KC_EQL),LSFT(KC_8),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        KC_10_TAB , KC_NO     ,LSFT(KC_EQL), KC_MINS  , KC_EQL    , KC_NO     , KC_NO  , KC_NO  , KC_PERC   , KC_P4     , KC_P5     , KC_P6     , KC_MINS   , KC_SLSH   ,
+        KC_10_TAB , KC_NO     ,LSFT(KC_EQL), KC_MINS  , KC_EQL    , KC_NO     , KC_NO  , KC_NO  , KC_PERC   , KC_4      , KC_5      , KC_6      , KC_MINS   , KC_SLSH   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
-        TD(4)     , KC_NO     ,LSFT(KC_8) , KC_SLSH   , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_P0     , KC_P1     , KC_P2     , KC_P3     , KC_EQL    , KC_RSFT   ,
+        TD(4)     , KC_NO     ,LSFT(KC_8) , KC_SLSH   , KC_NO     , KC_NO     , KC_NO  , KC_NO  , KC_0      , KC_1      , KC_2      , KC_3      , KC_EQL    , KC_RSFT   ,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------+-----------+-----------|
                              LALT_T(KC_DEL),KC_04_BSP , _______   , KC_03_ENT ,                   TO(_00)   , _______   , KC_06_BSP , KC_DEL
     //                        |-----------+-----------+-----------+-----------|                 |-----------+-----------+-----------+-----------|
@@ -1996,4 +1996,3 @@ bool oled_task_user(void) {
 */
 
 #endif
-
