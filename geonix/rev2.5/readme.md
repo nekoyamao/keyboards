@@ -41,7 +41,6 @@ Flashing example for this keyboard:
 
 ## Bootloader
 
-Enter the bootloader in 2 ways:
+Enter the bootloader in following way:
 
-* **Physical reset button**: Briefly press the button on the PCB
 * **Keycode in layout**: Press the key mapped to `RESET` if it is available
