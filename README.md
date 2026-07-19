@@ -9,6 +9,7 @@ Keyboards:
 * **Planck**: Support for rev7 PCB ONLY, NOT for other PCBs
 * **Vertex Arc60**: Support for Tsangan, Split Spacebar(3-1-3), ANSI and ISO
 * **Equals48 Kit**: Necessary to upgrade MCU to RP2040
+* **Geonix Rev.2.5**: Support for rev.2.5 Dual-1u PCB ONLY, NOT for other PCBs
 
 # Very Important
 
