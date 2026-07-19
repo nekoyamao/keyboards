@@ -1,17 +1,17 @@
-# Geonix Rev2.5
+# Geonix Rev.2.5
 
 
 
 A compact 40% (12x4) ortholinear keyboard kit designed by Masro and sold by Chosfox.
 
 * Keyboard Maintainer: [Chosfox]
-* Hardware Supported: rev2.5 Dual 1u PCB
+* Hardware Supported: rev.2.5 Dual-1u PCB
 * Hardware Availability: [Chosfox](https://chosfox.com/)
 
 ## Source code for Vial port
 
 Specification:
-* **PCB**: Support for rev2.5 Dual 1u PCB ONLY, NOT for other PCBs
+* **PCB**: Support for rev.2.5 Dual-1u PCB ONLY, NOT for other PCBs
 * **Layout**: Support for 48 Keys
 * **Layers**: 13 layers
 * **LED**: Support for RGB Matrix
