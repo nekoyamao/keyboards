@@ -1,5 +1,6 @@
 # Geonix Rev.2.5
-![Geonix Rev.2.5](https://assets.st-note.com/production/uploads/images/135718401/rectangle_large_type_2_d21fc52b6de4c4c14190d6a1ab387e15.jpeg?width=1200](https://assets.st-note.com/production/uploads/images/302977717/rectangle_large_type_2_478d883178a1584eb63c95d9dbebb4f2.jpeg?width=1280)
+
+![Geonix Rev.2.5](https://assets.st-note.com/production/uploads/images/302977717/rectangle_large_type_2_478d883178a1584eb63c95d9dbebb4f2.jpeg?width=1280)
 
 
 A compact 40% (12x4) ortholinear keyboard kit designed by Masro and sold by Chosfox.
