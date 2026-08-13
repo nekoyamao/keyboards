@@ -1,7 +1,7 @@
 {
-    "keyboard_name": "GEONIX REV.2.5 改",
-    "manufacturer": "RDMCTMZT",
-    "maintainer": "RDMCTMZT",
+    "keyboard_name": "Geonix Rev.2.5 改",
+    "manufacturer": "猫山王",
+    "maintainer": "Musangkeys",
     "usb": {
         "vid": "0x36B0",
         "pid": "0x313F",
