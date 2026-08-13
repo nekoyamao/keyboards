@@ -16,7 +16,7 @@
 #include QMK_KEYBOARD_H
 #include "../../../lib/rdr_lib/rdr_common.h"
 
-enum planck_layers {
+enum layer_number {
     _00, _01, _02, _03, _04, _05, _06,
 };
 
