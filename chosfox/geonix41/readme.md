@@ -38,7 +38,7 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 Flashing example for this keyboard:
 
-    Drag-and-drop firmware in DFU mode by holding TAB & Q keys in plugging the keyboard
+    Drag-and-drop firmware in DFU mode by holding `TAB` & `Q` keys in plugging the keyboard
 
 ## Bootloader
 
