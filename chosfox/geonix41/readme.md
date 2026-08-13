@@ -44,4 +44,4 @@ Flashing example for this keyboard:
 
 Enter the bootloader in following way:
 
-* **Bootmagic reset**: Hold down the keys at (0,0) and (O,1) in the matrix and plug in the keyboard
+* **Keycode in layout**: Press the key mapped to `RESET` if it is available
