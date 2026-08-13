@@ -38,7 +38,7 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 Flashing example for this keyboard:
 
-    To use QMK Tool Box to flash firmware
+    Drag-and-drop firmware in DFU mode by holding TAB & Q keys in plugging in the keyboard
 
 ## Bootloader
 
