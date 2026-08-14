@@ -43,13 +43,13 @@ static bool my_effect_numrow(effect_params_t* params) {
 
     for (uint8_t i = led_min; i < led_max; i++) {
         RGB_MATRIX_TEST_LED_FLAGS();       
-        if (i>=1 && i<=10){
+        if ((i>=1 && i<=3) || (i>=5 && i<=6) || (i>=8 && i<=10)){
             rgb_matrix_set_color(i, RGB_ORANGE);
         } else if (i==11 || (i>=22 && i<=23) || (i>=32 && i<=34)){
             rgb_matrix_set_color(i, RGB_BLUE);
         } else if ((i>=14 && i<=16) || (i>=26 && i<=27)){
             rgb_matrix_set_color(i, RGB_CHARTREUSE);
-        } else if ((i>=17 && i<=18) || (i>=29 && i<=30)){
+        } else if (i==4 || i==7 || (i>=17 && i<=18) || (i>=29 && i<=30)){
             rgb_matrix_set_color(i, RGB_CYAN);
         } else if (i>=19 && i<=21){
             rgb_matrix_set_color(i, RGB_PURPLE);
@@ -74,8 +74,10 @@ static bool my_effect_function(effect_params_t* params) {
 
     for (uint8_t i = led_min; i < led_max; i++) {
         RGB_MATRIX_TEST_LED_FLAGS();       
-        if (i>=1 && i<=10){
+        if ((i>=1 && i<=3) || (i>=5 && i<=6) || (i>=8 && i<=10)){
             rgb_matrix_set_color(i, RGB_GREEN);
+        } else if (i==4 || i==7){
+            rgb_matrix_set_color(i, RGB_BLUE);
         } else if ((i>=15 && i<=16) || (i>=27 && i<=28)){
             rgb_matrix_set_color(i, RGB_TURQUOISE);
         } else if ((i>=17 && i<=18) || (i>=29 && i<=30)){
@@ -105,8 +107,10 @@ static bool my_effect_symbol(effect_params_t* params) {
 
     for (uint8_t i = led_min; i < led_max; i++) {
         RGB_MATRIX_TEST_LED_FLAGS();       
-        if ((i>=0 && i<=11) || (i>=22 && i<=23) || (i>=32 && i<=35)){
+        if ((i>=1 && i<=3) || (i>=5 && i<=6) || (i>=8 && i<=11)|| (i>=22 && i<=23) || (i>=32 && i<=35)){
             rgb_matrix_set_color(i, RGB_BLUE);
+        } else if (i==4 || i==7){
+            rgb_matrix_set_color(i, RGB_GREEN);
         } else if ((i>=14 && i<=16) || (i>=26 && i<=27)){
             rgb_matrix_set_color(i, RGB_CHARTREUSE);
         } else if ((i>=17 && i<=18) || (i>=29 && i<=30)){
