@@ -73,16 +73,16 @@ layer_state_t layer_state_set_user(layer_state_t state){
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_goon);
             break;
         case _03:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_numrow);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_mouse);
             break;
         case _04:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_function);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_numrow);
             break;
         case _05:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_symbol);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_function);
             break;
         case _06:
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_mouse);
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_my_effect_symbol);
             break;
        default:
             rgb_matrix_reload_from_eeprom();
