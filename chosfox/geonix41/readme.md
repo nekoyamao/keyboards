@@ -18,7 +18,7 @@ Specification:
 * **LED**: Support for RGB Matrix
 * **Tap Dance**: Supported and 8 settings are available
 * **Combo**: Supported and 8 settings are available
-* **Macro**: Supported and 8 settings are available
+* **Macro**: Supported and 16 settings are available
 * **Extrakey**: Supported
 * **Mousekey**: Supported
 * **N-key Rollover**: Supported
