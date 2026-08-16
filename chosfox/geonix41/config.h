@@ -66,11 +66,10 @@
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define RGB_DISABLE_AFTER_TIMEOUT 0
 #define RGB_MATRIX_LED_FLUSH_LIMIT 16
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 144
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 255
 
 #define RGB_MATRIX_SPD_STEP   64                 // 设置 RGB 矩阵速度步进值
 #define RGB_MATRIX_VAL_STEP   16                 // 设置 RGB 矩阵亮度步进值
 #define RGB_MATRIX_DEFAULT_VAL 128             // 设置 RGB 矩阵默认亮度值
 
 #define RGB_MATRIX_SLEEP
-
