@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-// --- 追加: sin8が見つからない場合のフォールバック（万が一エラーが出る場合用） ---
+// --- 追加: sin8が見つからない場合のフォールバック ---
 #ifndef sin8
 #include <math.h>
 static inline uint8_t sin8(uint8_t theta) {
