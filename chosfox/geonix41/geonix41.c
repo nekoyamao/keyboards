@@ -228,69 +228,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         switch (keycode) {
             case LOGO_TOG:
-#ifdef LOGO_TOG
-            case LOGO_TOG:
-#endif
                 logo_enable = !logo_enable;
                 break;
 
             case LOGO_HUI:
-#ifdef LOGO_HUI
-            case LOGO_HUI:
-#endif
                 logo_hue += LOGO_HUE_STEP;
                 break;
 
             case LOGO_HUD:
-#ifdef LOGO_HUD
-            case LOGO_HUD:
-#endif
                 logo_hue -= LOGO_HUE_STEP;
                 break;
 
             case LOGO_SAI:
-#ifdef LOGO_SAI
-            case LOGO_SAI:
-#endif
                 if (logo_sat + LOGO_SAT_STEP > 255) logo_sat = 255;
                 else logo_sat += LOGO_SAT_STEP;
                 break;
 
             case LOGO_SAD:
-#ifdef LOGO_SAD
-            case LOGO_SAD:
-#endif
                 if (logo_sat < LOGO_SAT_STEP) logo_sat = 0;
                 else logo_sat -= LOGO_SAT_STEP;
                 break;
 
             case LOGO_VAI:
-#ifdef LOGO_VAI
-            case LOGO_VAI:
-#endif
                 if (logo_val + LOGO_VAL_STEP > LOGO_VAL_MAX) logo_val = LOGO_VAL_MAX;
                 else logo_val += LOGO_VAL_STEP;
                 break;
 
             case LOGO_VAD:
-#ifdef LOGO_VAD
-            case LOGO_VAD:
-#endif
                 if (logo_val < LOGO_VAL_MIN + LOGO_VAL_STEP) logo_val = LOGO_VAL_MIN;
                 else logo_val -= LOGO_VAL_STEP;
                 break;
 
             case LOGO_SPI:
-#ifdef LOGO_SPI
-            case LOGO_SPI:
-#endif
                 if (logo_speed < LOGO_SPEED_MAX) logo_speed++;
                 break;
 
             case LOGO_SPD:
-#ifdef LOGO_SPD
-            case LOGO_SPD:
-#endif
                 if (logo_speed > LOGO_SPEED_MIN) logo_speed--;
                 break;
 
