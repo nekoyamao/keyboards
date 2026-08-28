@@ -116,6 +116,43 @@ uint8_t logo_hue = 0;
 uint8_t logo_sat = 255;
 uint32_t last_key_pressed_time = 0;
 
+#include <eeprom.h>
+
+// EEPROM保存用のデータ構造体（全RGB設定を保持）
+typedef union {
+    uint32_t raw;
+    struct {
+        uint8_t logo_mode;   // 発光パターン
+        uint8_t logo_hue;    // 色相
+        uint8_t logo_sat;    // 彩度
+        uint8_t logo_val;    // 明るさ
+        uint8_t logo_speed;  // 変化速度
+        bool    logo_enable; // ON/OFF状態
+    };
+} geonix_config_t;
+
+geonix_config_t geonix_config;
+
+// FS026 EEPROM上の書き込み開始オフセットアドレス
+#ifdef VIA_EEPROM_CUSTOM_CONFIG_ADDR
+#    define GEONIX_EEPROM_ADDR ((void*)VIA_EEPROM_CUSTOM_CONFIG_ADDR)
+#else
+#    define GEONIX_EEPROM_ADDR ((void*)32)
+#endif
+
+// EEPROMへの保存処理用ヘルパー関数
+static void save_geonix_config(void) {
+    geonix_config.logo_mode   = logo_mode;
+    geonix_config.logo_hue    = logo_hue;
+    geonix_config.logo_sat    = logo_sat;
+    geonix_config.logo_val    = logo_val;
+    geonix_config.logo_speed  = logo_speed;
+    geonix_config.logo_enable = logo_enable;
+    
+    // 値に変更があった場合のみEEPROMに物理書き込み
+    eeprom_update_block(&geonix_config, GEONIX_EEPROM_ADDR, sizeof(geonix_config));
+}
+
 // ランダムカラー用変数
 static uint8_t current_random_hue = 0;
 static uint8_t target_random_hue = 0;
@@ -229,47 +266,57 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
             case LOGO_TOG:
                 logo_enable = !logo_enable;
+                save_geonix_config();
                 break;
 
             case LOGO_HUI:
                 logo_hue += LOGO_HUE_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_HUD:
                 logo_hue -= LOGO_HUE_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_SAI:
                 if (logo_sat + LOGO_SAT_STEP > 255) logo_sat = 255;
                 else logo_sat += LOGO_SAT_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_SAD:
                 if (logo_sat < LOGO_SAT_STEP) logo_sat = 0;
                 else logo_sat -= LOGO_SAT_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_VAI:
                 if (logo_val + LOGO_VAL_STEP > LOGO_VAL_MAX) logo_val = LOGO_VAL_MAX;
                 else logo_val += LOGO_VAL_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_VAD:
                 if (logo_val < LOGO_VAL_MIN + LOGO_VAL_STEP) logo_val = LOGO_VAL_MIN;
                 else logo_val -= LOGO_VAL_STEP;
+                save_geonix_config();
                 break;
 
             case LOGO_SPI:
                 if (logo_speed < LOGO_SPEED_MAX) logo_speed++;
+                save_geonix_config();
                 break;
 
             case LOGO_SPD:
                 if (logo_speed > LOGO_SPEED_MIN) logo_speed--;
+                save_geonix_config();
                 break;
 
             case LOGO_MOD:
                 logo_mode++;
                 if (logo_mode > LOGO_MODE_MAX) logo_mode = LOGO_MODE_MIN;
+                save_geonix_config();
                 break;
 
             case LOGO_RMOD:
@@ -278,6 +325,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 } else {
                     logo_mode--;
                 }
+                save_geonix_config();
                 break;
 
             default:
@@ -520,7 +568,29 @@ void board_init(void) {
 }
 
 void keyboard_post_init_user(void) {
-        User_Keyboard_Post_Init();
+    User_Keyboard_Post_Init();
+
+    // EEPROMから設定をロード
+    eeprom_read_block(&geonix_config, GEONIX_EEPROM_ADDR, sizeof(geonix_config));
+
+    // モード値の範囲チェックで正常データか判断
+    if (geonix_config.logo_mode >= LOGO_MODE_MIN && geonix_config.logo_mode <= LOGO_MODE_MAX) {
+        logo_mode   = geonix_config.logo_mode;
+        logo_hue    = geonix_config.logo_hue;
+        logo_sat    = geonix_config.logo_sat;
+        logo_val    = geonix_config.logo_val;
+        logo_speed  = geonix_config.logo_speed;
+        logo_enable = geonix_config.logo_enable;
+    } else {
+        // 未保存時のデフォルト値設定
+        logo_mode   = LOGO_WAVE_RGB_MODE;
+        logo_hue    = 0;
+        logo_sat    = 255;
+        logo_val    = LOGO_VAL_MAX;
+        logo_speed  = LOGO_SPEED_DEFAULT;
+        logo_enable = true;
+        save_geonix_config();
+    }
 }
 
 void User_Consumer_Send(uint16_t Code, bool Status) {
