@@ -82,10 +82,33 @@ led_config_t g_led_config = { {
 #define LOGO_RGB_RAINDROPS_MODE          (14)
 #define LOGO_RANDOM_COLOR_RAINDROPS_MODE (15)
 #define LOGO_REACTIVE_MODE               (16)
-#define LOGO_RANDOM_COLOR_WAVE_MODE      (17)
+
+#define LOGO_WAVE_DS_MODE_cw9            (17)
+#define LOGO_WAVE_DS_MODE_cw7            (18)
+#define LOGO_WAVE_DS_MODE_cw4            (19)
+#define LOGO_WAVE_DS_MODE_cw2            (20)
+#define LOGO_WAVE_DS_MODE_ccw9           (21)
+#define LOGO_WAVE_DS_MODE_ccw7           (22)
+#define LOGO_WAVE_DS_MODE_ccw4           (23)
+#define LOGO_WAVE_DS_MODE_ccw2           (24)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw9  (25)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw7  (26)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw4  (27)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw2  (28)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw9 (29)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw7 (30)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw4 (31)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw2 (32)
+#define LOGO_WAVE_RGB_MODE_cw9           (33)
+#define LOGO_WAVE_RGB_MODE_cw7           (34)
+#define LOGO_WAVE_RGB_MODE_cw4           (35)
+#define LOGO_WAVE_RGB_MODE_cw2           (36)
+#define LOGO_WAVE_RGB_MODE_ccw9          (37)
+#define LOGO_WAVE_RGB_MODE_ccw7          (38)
+#define LOGO_WAVE_RGB_MODE_ccw4          (39)
 
 #define LOGO_MODE_MIN               (1)
-#define LOGO_MODE_MAX               (17)
+#define LOGO_MODE_MAX               (39)
 
 // --- 制御用パラメータ ---
 #define LOGO_VAL_STEP               (17)
@@ -196,8 +219,243 @@ void set_logo_wave_colors(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue)
         uint8_t val = 255;
         uint8_t hue = custom_hue;
 
+        // 2つの波を作るため、全体の位相範囲を 512 (256 * 2) に設定
         uint16_t pos_phase = (uint16_t)i * 512 / LOGO_LED_COUNT;
         uint16_t current_phase = (pos_phase + 65536 - (time_offset % 512)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 反時計回りに2つの波（2周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_ccw2(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 2つの波を作るため、全体の位相範囲を 512 (256 * 2) に設定
+        uint16_t pos_phase = (uint16_t)i * 512 / LOGO_LED_COUNT;
+        uint16_t current_phase = (pos_phase + 65536 - (time_offset % 512)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 反時計回りに4つの波（4周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_ccw4(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 4つの波を作るため、全体の位相範囲を 1024 (256 * 4) に変更
+        uint16_t pos_phase = (uint16_t)i * 1024 / LOGO_LED_COUNT;
+        uint16_t current_phase = (pos_phase + 65536 - (time_offset % 1024)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 反時計回りに7つの波（7周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_ccw7(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 7つの波を作るため、全体の位相範囲を 1792 (256 * 7) に変更
+        uint16_t pos_phase = (uint16_t)i * 1792 / LOGO_LED_COUNT;
+        uint16_t current_phase = (pos_phase + 65536 - (time_offset % 1792)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 反時計回りに9つの波（9周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_ccw9(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 9つの波を作るため、全体の位相範囲を 2304 (256 * 9) に変更
+        uint16_t pos_phase = (uint16_t)i * 2304 / LOGO_LED_COUNT;
+        
+        // 反時計回りにするため time_offset を引き算
+        uint16_t current_phase = (pos_phase + 65536 - (time_offset % 2304)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 時計回りに2つの波（2周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_cw2(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 2つの波を作るため、全体の位相範囲を 512 (256 * 2) に設定
+        uint16_t pos_phase = (uint16_t)i * 512 / LOGO_LED_COUNT;
+        
+        // 時計回り（順方向）にするため、time_offset を加算 (+) に変更
+        uint16_t current_phase = (pos_phase + (time_offset % 512)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 時計回りに4つの波（4周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_cw4(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 4つの波を作るため、全体の位相範囲を 1024 (256 * 4) に変更
+        uint16_t pos_phase = (uint16_t)i * 1024 / LOGO_LED_COUNT;
+        
+        // 時計回り（順方向）にするため、time_offset を加算 (+) に変更
+        uint16_t current_phase = (pos_phase + (time_offset % 1024)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 時計回りに7つの波（7周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_cw7(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 7つの波を作るため、全体の位相範囲を 1792 (256 * 7) に変更
+        uint16_t pos_phase = (uint16_t)i * 1792 / LOGO_LED_COUNT;
+        
+        // 時計回り（順方向）にするため、time_offset を加算 (+) に変更
+        uint16_t current_phase = (pos_phase + (time_offset % 1792)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 時計回りに9つの波（9周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_cw9(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 9つの波を作るため、全体の位相範囲を 2304 (256 * 9) に変更
+        uint16_t pos_phase = (uint16_t)i * 2304 / LOGO_LED_COUNT;
+        
+        // 時計回り（順方向）にするため time_offset を加算 (+)
+        uint16_t current_phase = (pos_phase + (time_offset % 2304)) % 256;
 
         if (is_rgb) {
             hue = (custom_hue + current_phase) % 256;
@@ -350,19 +608,91 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     switch (logo_mode) {
         case LOGO_WAVE_RGB_MODE: {
-            // 1
             set_logo_wave_colors(scaled_time, true, logo_hue);
             break;
         }
 
+        case LOGO_WAVE_RGB_MODE_ccw4: {
+            set_logo_wave_colors_ccw4(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_ccw7: {
+            set_logo_wave_colors_ccw7(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_ccw9: {
+            set_logo_wave_colors_ccw9(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_cw2: {
+            set_logo_wave_colors_cw2(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_cw4: {
+            set_logo_wave_colors_cw4(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_cw7: {
+            set_logo_wave_colors_cw7(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_cw9: {
+            set_logo_wave_colors_cw9(scaled_time, true, logo_hue);
+            break;
+        }
+
         case LOGO_WAVE_DS_MODE: {
-            // 2
             set_logo_wave_colors(scaled_time, false, logo_hue);
             break;
         }
 
+        case LOGO_WAVE_DS_MODE_ccw2: {
+            set_logo_wave_colors_ccw2(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_ccw4: {
+            set_logo_wave_colors_ccw4(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_ccw7: {
+            set_logo_wave_colors_ccw7(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_ccw9: {
+            set_logo_wave_colors_ccw9(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_cw2: {
+            set_logo_wave_colors_cw2(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_cw4: {
+            set_logo_wave_colors_cw4(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_cw7: {
+            set_logo_wave_colors_cw7(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_cw9: {
+            set_logo_wave_colors_cw9(scaled_time, false, logo_hue);
+            break;
+        }
+
         case LOGO_SPECTRUM_MODE: {
-            // 3
             uint8_t hue = (scaled_time / 80) % 256;
             RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, 255});
             set_logo_colors(rgb.r, rgb.g, rgb.b);
@@ -370,7 +700,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_BREATH_MODE: {
-            // 4
             uint8_t val = get_smooth_wave_val((scaled_time / 15) % 256);
             RGB rgb = hsv_to_rgb((HSV){logo_hue, logo_sat, val});
             set_logo_colors(rgb.r, rgb.g, rgb.b);
@@ -378,19 +707,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_LIGHT_MODE: {
-            // 5
             set_logo_colors(current_hsv_rgb.r, current_hsv_rgb.g, current_hsv_rgb.b);
             break;
         }
 
         case LOGO_OFF_MODE: {
-            // 6
             set_logo_colors(0, 0, 0);
             break;
         }
 
         case LOGO_BLINK_MODE: {
-            // 7
             if ((scaled_time / 1500) % 2 == 0) {
                 set_logo_colors(current_hsv_rgb.r, current_hsv_rgb.g, current_hsv_rgb.b);
             } else {
@@ -400,7 +726,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_RGB_BLINK_MODE: {
-            // 8
             uint32_t blink_cycle = (scaled_time / 1500);
             if (blink_cycle % 2 == 0) {
                 uint8_t hue = (blink_cycle * 32) % 256;
@@ -413,7 +738,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_RANDOM_COLOR_BLINK_MODE: {
-            // 9
             uint32_t blink_cycle = (scaled_time / 1500);
             static uint32_t last_cycle = 0xFFFFFFFF;
 
@@ -434,7 +758,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_RGB_BREATH_MODE: {
-            // 10
             uint8_t hue = (scaled_time / 80) % 256;
             uint8_t val = get_smooth_wave_val((scaled_time / 15) % 256);
             RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
@@ -443,7 +766,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_RANDOM_COLOR_MODE: {
-            // 11
             static uint32_t last_change = 0;
             uint32_t interval = 2000 / logo_speed;
 
@@ -464,25 +786,21 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_RAINDROPS_MODE: {
-            // 12
             process_raindrops(0, scaled_time);
             break;
         }
 
         case LOGO_JELLYBEANRAINDROPS_MODE: {
-            // 13
             process_raindrops(1, scaled_time);
             break;
         }
 
         case LOGO_RGB_RAINDROPS_MODE: {
-            // 14
             process_raindrops(2, scaled_time);
             break;
         }
 
         case LOGO_RANDOM_COLOR_RAINDROPS_MODE: {
-            // 15
             static uint32_t last_change = 0;
             if (timer_elapsed32(last_change) > (2000 / logo_speed)) {
                 last_change = timer_read32();
@@ -498,7 +816,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 
         case LOGO_REACTIVE_MODE: {
-            // 16
             if (timer_elapsed32(last_key_pressed_time) < 300) {
                 set_logo_colors(current_hsv_rgb.r, current_hsv_rgb.g, current_hsv_rgb.b);
             } else {
@@ -507,8 +824,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         }
 
-        case LOGO_RANDOM_COLOR_WAVE_MODE: {
-            // 17
+        case LOGO_RANDOM_COLOR_WAVE_MODE_ccw2: {
             static uint32_t last_change = 0;
             uint32_t interval = 3000 / logo_speed;
 
@@ -523,7 +839,140 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 else current_random_hue--;
             }
 
-            set_logo_wave_colors(scaled_time, false, current_random_hue);
+            set_logo_wave_colors_ccw2(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_ccw4: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_ccw4(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_ccw7: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_ccw7(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_ccw9: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_ccw9(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_cw2: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_cw2(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_cw4: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_cw4(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_cw7: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_cw7(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_cw9: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_cw9(scaled_time, false, current_random_hue);
             break;
         }
 
