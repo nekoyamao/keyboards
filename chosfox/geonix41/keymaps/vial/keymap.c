@@ -90,3 +90,49 @@ layer_state_t layer_state_set_user(layer_state_t state){
   return state;
 }
 #endif
+
+
+#ifdef RGB_MATRIX_ENABLE
+bool rgb_matrix_indicators_advanced_user_kb(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state | default_layer_state);
+    switch (layer) {
+        case _01:
+            for (uint8_t i = 48; i <= 76; i++) {
+                rgb_matrix_set_color(i, RGB_MAGENTA);
+            }
+            break;
+        case _02:
+            for (uint8_t i = 48; i <= 51; i++) {
+                rgb_matrix_set_color(i, RGB_GOLD);
+            }
+            for (uint8_t i = 61; i <= 64; i++) {
+                rgb_matrix_set_color(i, RGB_GOLD);
+            }
+            rgb_matrix_set_color(76, RGB_GOLD);
+            break;
+        case _03:
+            for (uint8_t i = 48; i <= 76; i++) {
+                rgb_matrix_set_color(i, RGB_PINK);
+            }
+            break;
+        case _04:
+            for (uint8_t i = 48; i <= 76; i++) {
+                rgb_matrix_set_color(i, RGB_CYAN);
+            }
+            break;
+        case _05:
+            for (uint8_t i = 48; i <= 76; i++) {
+                rgb_matrix_set_color(i, RGB_BLUE);
+            }
+            break;
+        case _06:
+            for (uint8_t i = 48; i <= 76; i++) {
+                rgb_matrix_set_color(i, RGB_GREEN);
+            }
+            break;
+        default:
+            break;
+    }
+    return false;
+}
+#endif
