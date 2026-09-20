@@ -18,6 +18,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+bool rgb_matrix_indicators_advanced_user_kb(uint8_t led_min, uint8_t led_max);
+
 // --- 追加: sin8が見つからない場合のフォールバック ---
 #ifndef sin8
 #include <math.h>
@@ -600,11 +602,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     if (!logo_enable) {
         set_logo_colors(0, 0, 0);
-        return false;
-    }
-
-    uint32_t scaled_time = timer_read32() * logo_speed;
-    RGB current_hsv_rgb = hsv_to_rgb((HSV){logo_hue, logo_sat, 255});
+    } else {
+        uint32_t scaled_time = timer_read32() * logo_speed;
+        RGB current_hsv_rgb = hsv_to_rgb((HSV){logo_hue, logo_sat, 255});
 
     switch (logo_mode) {
         case LOGO_WAVE_RGB_MODE: {
@@ -976,9 +976,13 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         }
 
-        default:
+        default: {
             break;
+        }
+      }
     }
+
+    rgb_matrix_indicators_advanced_user_kb(led_min, led_max);
 
     return false;
 }
