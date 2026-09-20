@@ -107,7 +107,7 @@ static bool my_effect_symbol(effect_params_t* params) {
 
     for (uint8_t i = led_min; i < led_max; i++) {
         RGB_MATRIX_TEST_LED_FLAGS();       
-        if ((i>=1 && i<=2) || i==4 || (i>=6 && i<=7) || (i>=9 && i<=11)|| (i>=22 && i<=23) || (i>=32 && i<=35)){
+        if ((i>=0 && i<=2) || i==4 || (i>=6 && i<=7) || (i>=9 && i<=11)|| (i>=22 && i<=23) || (i>=32 && i<=35)){
             rgb_matrix_set_color(i, RGB_BLUE);
         } else if (i==3 || i==5 || i==8){
             rgb_matrix_set_color(i, RGB_GREEN);
@@ -152,5 +152,4 @@ static bool my_effect_mouse(effect_params_t* params) {
     return rgb_matrix_check_finished_leds(led_max);
 
 }
-
 #endif
