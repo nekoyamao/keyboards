@@ -102,13 +102,22 @@ bool rgb_matrix_indicators_advanced_user_kb(uint8_t led_min, uint8_t led_max) {
             }
             break;
         case _02:
-            for (uint8_t i = 48; i <= 51; i++) {
-                rgb_matrix_set_color(i, RGB_GOLD);
-            }
-            for (uint8_t i = 61; i <= 64; i++) {
-                rgb_matrix_set_color(i, RGB_GOLD);
-            }
-            rgb_matrix_set_color(76, RGB_GOLD);
+//            for (uint8_t i = 48; i <= 51; i++) {
+//                rgb_matrix_set_color(i, RGB_GOLD);
+//            }
+//            for (uint8_t i = 61; i <= 64; i++) {
+//                rgb_matrix_set_color(i, RGB_GOLD);
+//            }
+//            rgb_matrix_set_color(76, RGB_GOLD);
+            rgb_matrix_set_color(51, RGB_PURPLE);
+            rgb_matrix_set_color(50, RGB_BLUE);
+            rgb_matrix_set_color(49, RGB_GREEN);
+            rgb_matrix_set_color(48, RGB_YELLOW);
+            rgb_matrix_set_color(76, RGB_ORANGE);
+            rgb_matrix_set_color(61, RGB_PURPLE);
+            rgb_matrix_set_color(62, RGB_BLUE);
+            rgb_matrix_set_color(63, RGB_GREEN);
+            rgb_matrix_set_color(64, RGB_YELLOW);
             break;
         case _03:
             for (uint8_t i = 48; i <= 76; i++) {
