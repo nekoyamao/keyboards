@@ -89,28 +89,35 @@ led_config_t g_led_config = { {
 #define LOGO_WAVE_DS_MODE_cw7            (18)
 #define LOGO_WAVE_DS_MODE_cw4            (19)
 #define LOGO_WAVE_DS_MODE_cw2            (20)
-#define LOGO_WAVE_DS_MODE_ccw9           (21)
-#define LOGO_WAVE_DS_MODE_ccw7           (22)
-#define LOGO_WAVE_DS_MODE_ccw4           (23)
-#define LOGO_WAVE_DS_MODE_ccw2           (24)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_cw9  (25)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_cw7  (26)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_cw4  (27)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_cw2  (28)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw9 (29)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw7 (30)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw4 (31)
-#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw2 (32)
-#define LOGO_WAVE_RGB_MODE_cw9           (33)
-#define LOGO_WAVE_RGB_MODE_cw7           (34)
-#define LOGO_WAVE_RGB_MODE_cw4           (35)
-#define LOGO_WAVE_RGB_MODE_cw2           (36)
-#define LOGO_WAVE_RGB_MODE_ccw9          (37)
-#define LOGO_WAVE_RGB_MODE_ccw7          (38)
-#define LOGO_WAVE_RGB_MODE_ccw4          (39)
+#define LOGO_WAVE_DS_MODE_cw1            (21)
+#define LOGO_WAVE_DS_MODE_ccw9           (22)
+#define LOGO_WAVE_DS_MODE_ccw7           (23)
+#define LOGO_WAVE_DS_MODE_ccw4           (24)
+#define LOGO_WAVE_DS_MODE_ccw2           (25)
+#define LOGO_WAVE_DS_MODE_ccw1           (26)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw9  (27)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw7  (28)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw4  (29)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw2  (30)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_cw1  (31)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw9 (32)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw7 (33)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw4 (34)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw2 (35)
+#define LOGO_RANDOM_COLOR_WAVE_MODE_ccw1 (36)
+#define LOGO_WAVE_RGB_MODE_cw9           (37)
+#define LOGO_WAVE_RGB_MODE_cw7           (38)
+#define LOGO_WAVE_RGB_MODE_cw4           (39)
+#define LOGO_WAVE_RGB_MODE_cw2           (40)
+#define LOGO_WAVE_RGB_MODE_cw1           (41)
+#define LOGO_WAVE_RGB_MODE_ccw9          (42)
+#define LOGO_WAVE_RGB_MODE_ccw7          (43)
+#define LOGO_WAVE_RGB_MODE_ccw4          (44)
+#define LOGO_WAVE_RGB_MODE_ccw2          (45)
+#define LOGO_WAVE_RGB_MODE_ccw1          (46)
 
 #define LOGO_MODE_MIN               (1)
-#define LOGO_MODE_MAX               (39)
+#define LOGO_MODE_MAX               (46)  // --- MODEの数 忘れずに変更すること ---
 
 // --- 制御用パラメータ ---
 #define LOGO_VAL_STEP               (17)
@@ -213,7 +220,7 @@ void set_logo_colors(uint8_t r, uint8_t g, uint8_t b) {
     }
 }
 
-// 反時計回りに2つの波（2周分）で滑らかに周回するウェーブ関数
+// 反時計回りに2つの波（2周分）で滑らかに周回するウェーブ関数(Default)
 void set_logo_wave_colors(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
     uint16_t time_offset = (scaled_time / 16) % 65536;
 
@@ -241,6 +248,35 @@ void set_logo_wave_colors(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue)
     }
 }
 
+// 反時計回りに1つの波（1周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_ccw1(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 1つの波を作るため、全体の位相範囲を 256 (256 * 1) に設定
+        uint16_t pos_phase = (uint16_t)i * 256 / LOGO_LED_COUNT;
+
+        // 反時計回りにするため time_offset を引き算
+        uint16_t current_phase = (pos_phase + 65536 - (time_offset % 256)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
 // 反時計回りに2つの波（2周分）で滑らかに周回するウェーブ関数
 void set_logo_wave_colors_ccw2(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
     uint16_t time_offset = (scaled_time / 16) % 65536;
@@ -251,6 +287,8 @@ void set_logo_wave_colors_ccw2(uint32_t scaled_time, bool is_rgb, uint8_t custom
 
         // 2つの波を作るため、全体の位相範囲を 512 (256 * 2) に設定
         uint16_t pos_phase = (uint16_t)i * 512 / LOGO_LED_COUNT;
+
+        // 反時計回りにするため time_offset を引き算
         uint16_t current_phase = (pos_phase + 65536 - (time_offset % 512)) % 256;
 
         if (is_rgb) {
@@ -279,6 +317,8 @@ void set_logo_wave_colors_ccw4(uint32_t scaled_time, bool is_rgb, uint8_t custom
 
         // 4つの波を作るため、全体の位相範囲を 1024 (256 * 4) に変更
         uint16_t pos_phase = (uint16_t)i * 1024 / LOGO_LED_COUNT;
+
+        // 反時計回りにするため time_offset を引き算
         uint16_t current_phase = (pos_phase + 65536 - (time_offset % 1024)) % 256;
 
         if (is_rgb) {
@@ -307,6 +347,8 @@ void set_logo_wave_colors_ccw7(uint32_t scaled_time, bool is_rgb, uint8_t custom
 
         // 7つの波を作るため、全体の位相範囲を 1792 (256 * 7) に変更
         uint16_t pos_phase = (uint16_t)i * 1792 / LOGO_LED_COUNT;
+
+        // 反時計回りにするため time_offset を引き算
         uint16_t current_phase = (pos_phase + 65536 - (time_offset % 1792)) % 256;
 
         if (is_rgb) {
@@ -347,6 +389,34 @@ void set_logo_wave_colors_ccw9(uint32_t scaled_time, bool is_rgb, uint8_t custom
 
         RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
         
+        uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
+        uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
+        uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
+
+        rgb_matrix_set_color(logo_leds[i], scaled_r, scaled_g, scaled_b);
+    }
+}
+
+// 時計回りに1つの波（1周分）で滑らかに周回するウェーブ関数
+void set_logo_wave_colors_cw1(uint32_t scaled_time, bool is_rgb, uint8_t custom_hue) {
+    uint16_t time_offset = (scaled_time / 16) % 65536;
+
+    for (uint8_t i = 0; i < LOGO_LED_COUNT; i++) {
+        uint8_t val = 255;
+        uint8_t hue = custom_hue;
+
+        // 1つの波を作るため、全体の位相範囲を 256 (256 * 1) に設定
+        uint16_t pos_phase = (uint16_t)i * 256 / LOGO_LED_COUNT;
+        // 時計回り（順方向）にするため、time_offset を加算 (+) に設定
+        uint16_t current_phase = (pos_phase + (time_offset % 256)) % 256;
+
+        if (is_rgb) {
+            hue = (custom_hue + current_phase) % 256;
+        } else {
+            val = get_smooth_wave_val(current_phase);
+        }
+
+        RGB rgb = hsv_to_rgb((HSV){hue, logo_sat, val});
         uint8_t scaled_r = (uint16_t)rgb.r * logo_val / 255;
         uint8_t scaled_g = (uint16_t)rgb.g * logo_val / 255;
         uint8_t scaled_b = (uint16_t)rgb.b * logo_val / 255;
@@ -612,6 +682,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         }
 
+        case LOGO_WAVE_RGB_MODE_ccw1: {
+            set_logo_wave_colors_ccw1(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_ccw2: {
+            set_logo_wave_colors_ccw2(scaled_time, true, logo_hue);
+            break;
+        }
+
         case LOGO_WAVE_RGB_MODE_ccw4: {
             set_logo_wave_colors_ccw4(scaled_time, true, logo_hue);
             break;
@@ -624,6 +704,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
         case LOGO_WAVE_RGB_MODE_ccw9: {
             set_logo_wave_colors_ccw9(scaled_time, true, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_RGB_MODE_cw1: {
+            set_logo_wave_colors_cw1(scaled_time, true, logo_hue);
             break;
         }
 
@@ -652,6 +737,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         }
 
+        case LOGO_WAVE_DS_MODE_ccw1: {
+            set_logo_wave_colors_ccw1(scaled_time, false, logo_hue);
+            break;
+        }
+
         case LOGO_WAVE_DS_MODE_ccw2: {
             set_logo_wave_colors_ccw2(scaled_time, false, logo_hue);
             break;
@@ -669,6 +759,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
         case LOGO_WAVE_DS_MODE_ccw9: {
             set_logo_wave_colors_ccw9(scaled_time, false, logo_hue);
+            break;
+        }
+
+        case LOGO_WAVE_DS_MODE_cw1: {
+            set_logo_wave_colors_cw1(scaled_time, false, logo_hue);
             break;
         }
 
@@ -824,6 +919,25 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
         }
 
+        case LOGO_RANDOM_COLOR_WAVE_MODE_ccw1: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_ccw1(scaled_time, false, current_random_hue);
+            break;
+        }
+
         case LOGO_RANDOM_COLOR_WAVE_MODE_ccw2: {
             static uint32_t last_change = 0;
             uint32_t interval = 3000 / logo_speed;
@@ -897,6 +1011,25 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
 
             set_logo_wave_colors_ccw9(scaled_time, false, current_random_hue);
+            break;
+        }
+
+        case LOGO_RANDOM_COLOR_WAVE_MODE_cw1: {
+            static uint32_t last_change = 0;
+            uint32_t interval = 3000 / logo_speed;
+
+            if (timer_elapsed32(last_change) > interval) {
+                last_change = timer_read32();
+                target_random_hue = rand() % 256;
+            }
+
+            if (current_random_hue != target_random_hue) {
+                uint8_t diff = target_random_hue - current_random_hue;
+                if (diff < 128) current_random_hue++;
+                else current_random_hue--;
+            }
+
+            set_logo_wave_colors_cw1(scaled_time, false, current_random_hue);
             break;
         }
 
