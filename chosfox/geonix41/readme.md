@@ -12,8 +12,8 @@ A compact 40% (12x4) ortholinear keyboard kit designed by Masro and sold by Chos
 ## Source code for Vial port
 
 Specification:
-* **PCB**: Support for rev.2.5 Dual-1u PCB ONLY, NOT for other PCBs
-* **Layout**: Support for Dual-1u layout(48 keys)
+* **PCB**: Support for rev.2.5 PCB, NOT for other PCBs
+* **Layout**: Support for both "Dual-1u(48 keys)" and "2u Spacebar" layouts
 * **Layers**: 7 layers
 * **LED**: Support for RGB Matrix
 * **Tap Dance**: Supported and 8 settings are available
