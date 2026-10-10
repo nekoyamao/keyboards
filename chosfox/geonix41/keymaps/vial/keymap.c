@@ -145,3 +145,26 @@ bool rgb_matrix_indicators_advanced_user_kb(uint8_t led_min, uint8_t led_max) {
     return false;
 }
 #endif
+
+
+#ifdef RGB_MATRIX_ENABLE
+bool rgb_matrix_indicators_advanced_user_lock(uint8_t led_min, uint8_t led_max) {
+    led_t led_state = host_keyboard_led_state();
+    if (led_state.scroll_lock) {
+        rgb_matrix_set_color(12, RGB_PURPLE);
+    }
+    if (led_state.compose) {
+        rgb_matrix_set_color(12, RGB_CYAN);
+    }
+    if (led_state.kana) {
+        rgb_matrix_set_color(12, RGB_PINK);
+    }
+    if (led_state.num_lock) {
+        rgb_matrix_set_color(12, RGB_GOLD);
+    }
+    if (led_state.caps_lock) {
+        rgb_matrix_set_color(12, RGB_RED);
+    }
+    return true;
+}
+#endif
