@@ -35,7 +35,7 @@
 	"matrix": { "rows": 4, "cols": 12 },
         "layouts": {
           "labels": [
-                     ["Layout", "Dual-1u(48 keys)", "2u Spacebar"]
+                     ["Layout", "Dual 1u(48 keys)", "2u Spacebar"]
                     ],
 		"keymap": [
 [
