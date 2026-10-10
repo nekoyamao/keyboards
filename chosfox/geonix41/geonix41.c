@@ -19,6 +19,7 @@
 #include <math.h>
 
 bool rgb_matrix_indicators_advanced_user_kb(uint8_t led_min, uint8_t led_max);
+bool rgb_matrix_indicators_advanced_user_lock(uint8_t led_min, uint8_t led_max);
 
 // --- 追加: sin8が見つからない場合のフォールバック ---
 #ifndef sin8
@@ -1116,6 +1117,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     }
 
     rgb_matrix_indicators_advanced_user_kb(led_min, led_max);
+    rgb_matrix_indicators_advanced_user_lock(led_min, led_max);
 
     return false;
 }
