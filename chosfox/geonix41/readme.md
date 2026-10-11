@@ -6,7 +6,7 @@
 A compact 40% (12x4) ortholinear keyboard kit designed by Masro and sold by Chosfox.
 
 * Keyboard Maintainer: [Chosfox]
-* Hardware Supported: rev.2.5 Dual-1u PCB
+* Hardware Supported: rev.2.5 Dual-1u/2u PCB
 * Hardware Availability: [Chosfox](https://chosfox.com/)
 
 ## Source code for Vial port
