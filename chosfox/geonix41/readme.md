@@ -16,7 +16,7 @@ Specification:
 * **Layout**: Support for both "Dual 1u(48 keys)" and "2u Spacebar" layouts
 * **Layers**: 7 layers
 * **LED**: Support for RGB Matrix
-* **INDICATOR**: Support for the status of "Num Lock", "Caps Lock", "Scroll Lock", "Compose Lock" and "Kana Lock"
+* **Indicator**: Support for the status of "Num Lock", "Caps Lock", "Scroll Lock", "Compose Lock" and "Kana Lock"
 * **Tap Dance**: Supported and 8 settings are available
 * **Combo**: Supported and 8 settings are available
 * **Macro**: Supported and 16 settings are available
