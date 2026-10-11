@@ -17,9 +17,9 @@
 #include QMK_KEYBOARD_H
 #include "gpio.h"
 
-enum planck_layers {
+enum layer_number {
     _00, _01, _02, _03, _04, _05, _06, _07, _08, _09, _10, _11, _12, _13, _14, _15,
-    _16, _17, _18, _19, _20, _21, _22
+    _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31,
 };
 
 
@@ -384,6 +384,114 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
     ),
 
+    [_23] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_24] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_25] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_26] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_27] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_28] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_29] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_30] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
+    [_31] = LAYOUT(
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+        KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     ,      KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO
+    //|-----------+-----------+-----------+-----------+-----------+-----------|    |-----------+-----------+-----------+-----------+-----------+-----------|
+    ),
+
 };
 
 
@@ -437,6 +545,24 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_21] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
               ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
     [_22] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_23] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_24] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_25] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_26] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_27] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_28] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_29] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_30] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
+              ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_31] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO),
               ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
 };
 #endif
@@ -537,6 +663,41 @@ const rgblight_segment_t PROGMEM rgb_layer_22[] = RGBLIGHT_LAYER_SEGMENTS(
     {0, 9, HSV_CYAN}
 );
 
+const rgblight_segment_t PROGMEM rgb_layer_23[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_AZURE}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_24[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_BLUE}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_25[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_PURPLE}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_26[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_MAGENTA}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_27[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_PINK}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_28[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_RED}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_29[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_CORAL}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_30[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_YELLOW}
+);
+
+const rgblight_segment_t PROGMEM rgb_layer_31[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 9, HSV_TURQUOISE}
+);
 
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 //    rgb_layer_00,
@@ -561,7 +722,16 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     rgb_layer_19,
     rgb_layer_20,
     rgb_layer_21,
-    rgb_layer_22     // ,不要 
+    rgb_layer_22,
+    rgb_layer_23,
+    rgb_layer_24,
+    rgb_layer_25,
+    rgb_layer_26,
+    rgb_layer_27,
+    rgb_layer_28,
+    rgb_layer_29,
+    rgb_layer_30,
+    rgb_layer_31       // ,不要
 );
 
 void keyboard_post_init_user(void) {
@@ -592,6 +762,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(18, layer_state_cmp(state, _20));
     rgblight_set_layer_state(19, layer_state_cmp(state, _21));
     rgblight_set_layer_state(20, layer_state_cmp(state, _22));
+    rgblight_set_layer_state(21, layer_state_cmp(state, _23));
+    rgblight_set_layer_state(22, layer_state_cmp(state, _24));
+    rgblight_set_layer_state(23, layer_state_cmp(state, _25));
+    rgblight_set_layer_state(24, layer_state_cmp(state, _26));
+    rgblight_set_layer_state(25, layer_state_cmp(state, _27));
+    rgblight_set_layer_state(26, layer_state_cmp(state, _28));
+    rgblight_set_layer_state(27, layer_state_cmp(state, _29));
+    rgblight_set_layer_state(28, layer_state_cmp(state, _30));
+    rgblight_set_layer_state(29, layer_state_cmp(state, _31));
     return state;
 }
 
@@ -694,12 +873,71 @@ layer_state_t layer_state_set_user(layer_state_t state){
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
             rgb_matrix_sethsv_noeeprom(HSV_CYAN);
             break;
+        case _23:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_AZURE);
+            break;
+        case _24:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_BLUE);
+            break;
+        case _25:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_PURPLE);
+            break;
+        case _26:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_MAGENTA);
+            break;
+        case _27:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_PINK);
+            break;
+        case _28:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_RED);
+            break;
+        case _29:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_CORAL);
+            break;
+        case _30:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_YELLOW);
+            break;
+        case _31:
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+            rgb_matrix_sethsv_noeeprom(HSV_TURQUOISE);
+            break;
        default:
             rgb_matrix_reload_from_eeprom();
     }
   return state;
 }
 #endif 
+
+
+#ifdef RGB_MATRIX_ENABLE
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    led_t led_state = host_keyboard_led_state();
+    if (led_state.scroll_lock) {
+        rgb_matrix_set_color(6, RGB_PURPLE);
+    }
+    if (led_state.compose) {
+        rgb_matrix_set_color(6, RGB_CYAN);
+    }
+    if (led_state.kana) {
+        rgb_matrix_set_color(6, RGB_PINK);
+    }
+    if (led_state.num_lock) {
+        rgb_matrix_set_color(6, RGB_GOLD);
+    }
+    if (led_state.caps_lock) {
+        rgb_matrix_set_color(6, RGB_RED);
+    }
+    return true;
+}
+#endif
 
 
 #ifdef AUDIO_ENABLE
@@ -710,4 +948,3 @@ const uint8_t music_map[MATRIX_ROWS][MATRIX_COLS] = LAYOUT(
 	 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11
 );
 #endif
-
