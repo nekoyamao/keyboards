@@ -3,7 +3,7 @@
 
 #include QMK_KEYBOARD_H
 
-enum planck_layers {
+enum layer_number {
     _00, _01, _02, _03, _04, _05, _06, _07, _08, _09, _10, _11, _12, _13, _14, _15,
     _16, _17, _18, _19, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31,
 };
@@ -660,8 +660,25 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             default:
                 break;
         }
+
+        led_t led_state = host_keyboard_led_state();
+            if (led_state.scroll_lock) {
+                rgb_matrix_set_color(22, RGB_PURPLE);
+            }
+            if (led_state.compose) {
+                rgb_matrix_set_color(22, RGB_CYAN);
+            }
+            if (led_state.kana) {
+                rgb_matrix_set_color(22, RGB_PINK);
+            }
+            if (led_state.num_lock) {
+                rgb_matrix_set_color(22, RGB_GOLD);
+            }
+            if (led_state.caps_lock) {
+                rgb_matrix_set_color(22, RGB_RED);
+            }
+
     }
     return false;
 }
 #endif
-
