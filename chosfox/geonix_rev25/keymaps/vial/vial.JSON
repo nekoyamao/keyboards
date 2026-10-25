@@ -1,0 +1,141 @@
+{
+	"name": "GEONIX REV.2.5 1U",
+	"vendorId": "0x36B0",
+	"productId": "0x313F",
+	"lighting": "vialrgb",
+	"keycodes": ["qmk_lighting"],
+	"customKeycodes": [
+		{"name": "2.4G",     "title": "Set to 2.4G working mode",                "shortName": "MD_24G"   },
+		{"name": "BLE1",     "title": "Set to Bluetooth Channel 1 working mode", "shortName": "MD_BLE1"  },
+		{"name": "BLE2",     "title": "Set to Bluetooth Channel 2 working mode", "shortName": "MD_BLE2"  },
+		{"name": "BLE3",     "title": "Set to Bluetooth Channel 3 working mode", "shortName": "MD_BLE3"  },
+		{"name": "USB",	     "title": "Set to USB working mode",                 "shortName": "MD_USB"   },
+		{"name": "BAT",      "title": "Querying Battery Status",                 "shortName": "QK_BAT"   },
+		{"name": "WLO",      "title": "Lock WIN",                                "shortName": "QK_WLO"   },
+		{"name": "SIX_N",    "title": "Full-key six-key switch",                 "shortName": "SIX_N"    },
+		{"name": "RTOG",     "title": "Toggle led lighting on or off",           "shortName": "RGB_RTOG" },
+		{"name": "U_EE_CLR", "title": "Customize the reset button",              "shortName": "U_EE_CLR" },
+		{"name": "USER_CH",  "title": "Switch F area and Num area",              "shortName": "KC_UC"    },
+        {"name": "QK_DEB",   "title": "Number of times that the key shakes off", "shortName": "QK_DEB"   },
+        {"name": "KbPrSlp",  "title": "Keyboard primary sleep",                  "shortName": "KbPrSlp"  },
+		{"name": "KbdSecS",  "title": "Keyboard secondary sleep",                "shortName": "KbdSecS"  },
+		{"name": "TEST",     "title": "Test Keyboard Colour",                    "shortName": "TEST"     },
+		{"name": "LG_TOG",   "title": "Toggle logo lighting on or off",          "shortName": "LG_TOG"   },
+		{"name": "LG_MO",    "title": "Cycle through modes",                     "shortName": "LG_MOD"   },
+		{"name": "LG_RM",    "title": "Cycle through modes in reverse",          "shortName": "LG_RMOD"  },
+		{"name": "LG_HUI",   "title": "logo Increase hue",                       "shortName": "LG_HUI"   },
+		{"name": "LG_HUD",   "title": "logo Decrease hue",                       "shortName": "LG_HUD"   },
+		{"name": "LG_SAI",   "title": "logo Increase saturation",                "shortName": "LG_SAI"   },
+		{"name": "LG_SAD",   "title": "logo Decrease saturation",                "shortName": "LG_SAD"   },
+		{"name": "LG_VAI",   "title": "logo Increase value (brightness)",        "shortName": "LG_VAI"   },
+		{"name": "LG_VAD",   "title": "logo Decrease value (brightness)",        "shortName": "LG_VAD"   },
+		{"name": "LG_SPI",   "title": "logo Increase effect speed",              "shortName": "LG_SPI"   },
+		{"name": "LG_SPD",   "title": "logo Decrease effect speed",              "shortName": "LG_SPD"   }
+	],
+	"matrix": { "rows": 4, "cols": 12 },
+        "layouts": {
+          "labels": [
+                     ["Layout", "Dual 1u(48 keys)", "2u Spacebar"]
+                    ],
+		"keymap": [
+[
+    {
+      "c": "#aaaaaa"
+    },
+    "0,0",
+    {
+      "c": "#cccccc"
+    },
+    "0,1",
+    "0,2",
+    "0,3",
+    "0,4",
+    "0,5",
+    "0,6",
+    "0,7",
+    "0,8",
+    "0,9",
+    "0,10",
+    {
+      "c": "#aaaaaa"
+    },
+    "0,11"
+  ],
+  [
+    "1,0",
+    {
+      "c": "#cccccc"
+    },
+    "1,1",
+    "1,2",
+    "1,3",
+    "1,4",
+    "1,5",
+    "1,6",
+    "1,7",
+    "1,8",
+    "1,9",
+    "1,10",
+    {
+      "c": "#aaaaaa"
+    },
+    "1,11"
+  ],
+  [
+    "2,0",
+    {
+      "c": "#cccccc"
+    },
+    "2,1",
+    "2,2",
+    "2,3",
+    "2,4",
+    "2,5",
+    "2,6",
+    "2,7",
+    "2,8",
+    "2,9",
+    "2,10",
+    {
+      "c": "#aaaaaa"
+    },
+    "2,11"
+  ],
+  [
+    "3,0",
+    "3,2",
+    "3,3",
+    "3,4",
+    {
+      "c": "#777777"
+    },
+    "3,5",
+    {
+      "c": "#cccccc"
+    },
+    "3,6\n\n\n0,0",
+    "3,1\n\n\n0,0",
+    {
+      "c": "#777777"
+    },
+    "3,7",
+    {
+      "c": "#aaaaaa"
+    },
+    "3,8",
+    "3,9",
+    "3,10",
+    "3,11"
+  ],
+  [
+    {
+      "y": 0.5,
+      "x": 5,
+      "c": "#d3dbb4",
+      "w": 2
+    },
+    "3,6\n\n\n0,1"
+  ]
+]
+	}
+}
