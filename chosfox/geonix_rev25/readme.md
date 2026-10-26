@@ -31,8 +31,7 @@ Specification:
 * **One Shot Keys**: Supported
 * **QMK settings in Vial**:  Supported and all features in Vial QMK settings are available
 
-Fork from [carlosedp/qmk_firmware](https://github.com/carlosedp/qmk_firmware),
-Or copy the "rdmctmzt_common" folder and files and paste them into /vial-qmk/lib:
+Fork from [carlosedp/qmk_firmware](https://github.com/carlosedp/qmk_firmware), or copy the "rdmctmzt_common" folder and files and paste them into /vial-qmk/lib:
 
     Then, you will find /vial-qmk/lib/rdmctmzt_common
 
