@@ -37,6 +37,7 @@
       },
   "rgb_matrix": {
         "animations": {
+            "solid_color": true,
             "alphas_mods": true,
             "gradient_up_down": true,
             "gradient_left_right": true,
@@ -63,9 +64,9 @@
             "hue_breathing": true,
             "hue_pendulum": true,
             "hue_wave": true,
-            "pixel_fractal": true,
-            "pixel_flow": true,
             "pixel_rain": true,
+            "pixel_flow": true,
+            "pixel_fractal": true,
             "typing_heatmap": true,
             "digital_rain": true,
             "solid_reactive_simple": true,
@@ -77,9 +78,14 @@
             "solid_reactive_nexus": true,
             "solid_reactive_multinexus": true,
             "splash": true,
-            "multisplash": true,
+            "multispash": true,
             "solid_splash": true,
-            "solid_multisplash": true
+            "solid_multisplash": true,
+            "starlight": true,
+            "starlight_smooth": true,
+            "starlight_dual_hue": true,
+            "starlight_dual_sat": true,
+            "riverflow": true
         },
         "driver": "ws2812",
         "layout": [
